@@ -1,1 +1,21 @@
-_sig = getquartz("885c9dd7-24b1-4789-b4b2-f309f093be28", "finj.in_chan_1", "2023-09-21T22:39:00")
+/*
+  sample invocation from tdi.
+
+  usage in tdi:
+    getquartz(guid, channel_name, start_time, end_time, zero_time)
+
+  returns an MDSplus.Signal
+  
+  NOTE: that if typing at the interactive tditest
+  multiline expressions can not be entered.  In other contexts - 
+  (in .funs) they can.
+_sig = getquartz("885c9dd7-24b1-4789-b4b2-f309f093be28", 
+                 "finj.in_chan_1", 
+                 "2023-09-21T22:39:00",
+                 "2023-09-21T22:40:00",
+                 "2023-09-21T22:39:00")
+*/
+_sig = getquartz("885c9dd7-24b1-4789-b4b2-f309f093be28","finj.in_chan_1","2023-09-21T22:39:00","2023-09-21T22:40:00","2023-09-21T22:39:00")
+
+
+

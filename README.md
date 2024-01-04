@@ -1,5 +1,9 @@
 This repo contains samples and ideas of code to access Quartz data from MDSplus.
 
+Before using this code initialize the MDSplus and QUARTZ environments
+```
+source env.sh
+```
 Main Function:
    `getquartz.py`
 which uses
