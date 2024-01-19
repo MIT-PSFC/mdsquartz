@@ -32,13 +32,21 @@ def getquartz(run_id, signal_name, start_time, end_time, zero_time):
     from usecs_from_strings import usecs_from_strings
     data_access_client = quartz.DataAccessClient(quartz.PRODUCTION_DATA_ACCESS_URL)
     chnls = [str(signal_name)]
+    if start_time.__class__ == MDSplus.tree.TreeNode:
+        start_time = str(start_time.data())
     start = dt.datetime.fromisoformat(str(start_time))
+    print('I have the start', start)
+    if end_time.__class__ == MDSplus.tree.TreeNode:
+        end_time = str(end_time.data())
     end = dt.datetime.fromisoformat(str(end_time))
+    print('I have the END', end)
     ans =  data_access_client.read_channel_data(str(run_id),
                                              channels = chnls,
                                              start = start.astimezone(ZoneInfo("UTC")),
                                              end = end.astimezone(ZoneInfo("UTC")))
     times = usecs_from_strings(ans[0]['children'][0]['data']['times'])
+    if zero_time.__class__ == MDSplus.tree.TreeNode:
+        zero_time = zero_time.data()
     times -= usecs_from_strings([zero_time])[0]
     times = MDSplus.Float64(times)*1E-6
     values = ans[0]['children'][0]['data']['values']
