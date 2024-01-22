@@ -28,7 +28,7 @@ def add_items(parent, parent_name, items):
 def quartztree(run_id, treename, shotnumber):
     import quartz
     from MDSplus import Tree
-    from usecs_from_strings import usecs_from_strings
+    from nsec_from_string import nsec_from_string
     tree = Tree(treename, shotnumber, 'new')
     data_registry_client = quartz.DataRegistryClient(quartz.PRODUCTION_DATA_REGISTRY_URL)
     run_info = data_registry_client.get_run(run_id)
@@ -60,11 +60,9 @@ def quartztree(run_id, treename, shotnumber):
     zero_time_string_node.record = run_info['creation_time']
     zero_time_node = tree.addNode('ZERO_TIME', 'numeric')
     zero_time_node.addTag('ZERO_TIME')
-    time_strings = [run_info['creation_time'], run_info['deactivation_time']]
-    times = usecs_from_strings(time_strings)
-    start_time_node.record = times[0]
-    zero_time_node.record = times[0]
-    end_time_node.record = times[1]
+    zero_time_node.record = nsec_from_string(run_info['creation_time'])
+    start_time_node.record = nsec_from_string(run_info['creation_time'])
+    end_time_node.record = nsec_from_string(run_info['deactivation_time'])
     tags_node = tree.addNode('tags', 'text')
 #    tags_node.record = run_info['tags'] - is it a list ?
 
