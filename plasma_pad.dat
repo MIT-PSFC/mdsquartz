@@ -1,0 +1,1688 @@
+Pad.geometry: 761x699+1101+165
+Pad.title: Plasma Pad
+Pad.icon_name: Pad Plasma
+Pad.columns: 7
+Pad.rows: 34
+Pad.padlabelwidth: 16
+Pad.font: 0
+
+Pad.pad_1_1.experiment: magnetics
+Pad.pad_1_1.default_node: \magnetics::top
+Pad.pad_1_1.y: abs(\magnetics::BTOR)
+Pad.pad_1_1.event: MAG_TRAQ
+Pad.pad_1_1.title: "Bt (Diam)" // getdbi("shot")
+Pad.pad_1_1.label: BT
+Pad.pad_1_1.global_defaults: 12546
+
+Pad.pad_2_1.experiment: magnetics 
+Pad.pad_2_1.x: dim_of(\magnetics::ip)
+Pad.pad_2_1.y: _ip=abs(\magnetics::ip)/1.e6
+Pad.pad_2_1.event: mag_traq  
+Pad.pad_2_1.title: "Ip    "//$shot
+Pad.pad_2_1.label: Ip
+Pad.pad_2_1.global_defaults: 12544
+
+
+Pad.pad_4_1.experiment: analysis
+Pad.pad_4_1.y: -\ANALYSIS::EFIT_AEQDSK:btaxp
+Pad.pad_4_1.ymin: 0
+Pad.pad_4_1.event: efit_done
+Pad.pad_4_1.title: "BT (EFIT)"//current_shot('cmod')
+Pad.pad_4_1.label: BT (efit)
+Pad.pad_4_1.global_defaults: -739457
+
+Pad.pad_5_1.show_mode: 2
+Pad.pad_5_1.experiment: analysis
+Pad.pad_5_1.x: dim_of(\efit_aeqdsk:rout)
+Pad.pad_5_1.y: -66.*\efit_aeqdsk:bcentr/\efit_aeqdsk:rout
+Pad.pad_5_1.event: efit_done
+Pad.pad_5_1.title: "BT at ROUT"//$shot
+Pad.pad_5_1.label: BT (EFIT @ROUT)
+Pad.pad_5_1.global_defaults: -773257
+
+Pad.pad_6_1.experiment: analysis
+Pad.pad_6_1.y: -\ANALYSIS::EFIT_AEQDSK:CPASMA/1.e6
+Pad.pad_6_1.ymin: 0
+Pad.pad_6_1.event: efit_done
+Pad.pad_6_1.title: "Ip"//current_shot('cmod')
+Pad.pad_6_1.label: IP (efit)
+Pad.pad_6_1.global_defaults: -739457
+
+Pad.pad_7_1.experiment: analysis
+Pad.pad_7_1.default_node: \analysis::efit
+Pad.pad_7_1.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Pad.pad_7_1.y: deriv(\ANALYSIS::EFIT_SSIBRY)*$2pi
+Pad.pad_7_1.ymin: -.5
+Pad.pad_7_1.ymax: 4
+Pad.pad_7_1.event: efit_done
+Pad.pad_7_1.title: "Vsurf"//$shot
+Pad.pad_7_1.label: Vsurf
+Pad.pad_7_1.global_defaults: -773761
+
+Pad.pad_8_1.experiment: analysis
+Pad.pad_8_1.x: dim_of(\ANALYSIS::EFIT_SSIMAG)
+Pad.pad_8_1.y: deriv(\ANALYSIS::EFIT_SSIMAG)*$2pi
+Pad.pad_8_1.ymin: 0
+Pad.pad_8_1.ymax: 4
+Pad.pad_8_1.event: efit_done
+Pad.pad_8_1.title: "Vaxis"
+Pad.pad_8_1.label: Vaxis
+Pad.pad_8_1.global_defaults: -773257
+
+Pad.pad_9_1.experiment: analysis
+Pad.pad_9_1.default_node: \analysis::efit
+Pad.pad_9_1.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Pad.pad_9_1.y: _vsurf = deriv(\ANALYSIS::EFIT_SSIBRY)*$2pi ;|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA);|||_li = \analysis::efit_aeqdsk:ali;|||_L = _li*6.28*67.*1.e-9;|||_vi = _L*deriv(_ip);|||_vres=(_vsurf-_vi)
+Pad.pad_9_1.ymin: -.5
+Pad.pad_9_1.ymax: 4
+Pad.pad_9_1.event: efit_done
+Pad.pad_9_1.title: "V Resistive"//$shot
+Pad.pad_9_1.label: Vres
+Pad.pad_9_1.global_defaults: -773761
+
+
+Pad.pad_11_1.show_mode: 2
+Pad.pad_11_1.experiment: analysis
+Pad.pad_11_1.x: _t=dim_of(_a)
+Pad.pad_11_1.y: _a=\analysis::efit_aeqdsk:aout
+Pad.pad_11_1.ymin: 18
+Pad.pad_11_1.ymax: 24
+Pad.pad_11_1.event: efit_done
+Pad.pad_11_1.title: "a"//$shot
+Pad.pad_11_1.label: a
+Pad.pad_11_1.global_defaults: -773257
+
+Pad.pad_12_1.show_mode: 2
+Pad.pad_12_1.experiment: analysis
+Pad.pad_12_1.y: _a=\analysis::efit_aeqdsk:rmagx
+Pad.pad_12_1.event: efit_done
+Pad.pad_12_1.title: "Rmagx"//$shot
+Pad.pad_12_1.label: Rmagx
+Pad.pad_12_1.global_defaults: -773257
+
+Pad.pad_13_1.show_mode: 2
+Pad.pad_13_1.experiment: analysis
+Pad.pad_13_1.y: _a=\analysis::efit_aeqdsk:rout
+Pad.pad_13_1.event: efit_done
+Pad.pad_13_1.title: "ROUT"//$shot
+Pad.pad_13_1.label: Rout
+Pad.pad_13_1.global_defaults: -773257
+
+Pad.pad_14_1.show_mode: 2
+Pad.pad_14_1.experiment: analysis
+Pad.pad_14_1.y: _a=\analysis::efit_aeqdsk:seplim|||
+Pad.pad_14_1.event: efit_done
+Pad.pad_14_1.title: "dsep"//$shot
+Pad.pad_14_1.label: dsep
+Pad.pad_14_1.global_defaults: -773257
+
+Pad.pad_15_1.show_mode: 2
+Pad.pad_15_1.experiment: analysis
+Pad.pad_15_1.y: _a=\analysis::efit_aeqdsk:ssep|||
+Pad.pad_15_1.ymin: -2
+Pad.pad_15_1.ymax: 2
+Pad.pad_15_1.event: efit_done
+Pad.pad_15_1.title: "ssep"//$shot
+Pad.pad_15_1.label: ssep
+Pad.pad_15_1.global_defaults: -773257
+
+Pad.pad_16_1.show_mode: 2
+Pad.pad_16_1.experiment: analysis
+Pad.pad_16_1.default_node: \analysis::efit_aeqdsk
+Pad.pad_16_1.x: dim_of(rmagx)
+Pad.pad_16_1.y: rmagx-rout
+Pad.pad_16_1.event: efit_done
+Pad.pad_16_1.title: "Shafranov Shift (cm)"//$shot
+Pad.pad_16_1.label: Shafranov Shift
+Pad.pad_16_1.global_defaults: -773769
+
+Pad.pad_17_1.show_mode: 2
+Pad.pad_17_1.experiment: analysis
+Pad.pad_17_1.y: _a=\analysis::efit_aeqdsk:zmagx
+Pad.pad_17_1.event: efit_done
+Pad.pad_17_1.title: "Zmagx"//$shot
+Pad.pad_17_1.label: Zmagx
+Pad.pad_17_1.global_defaults: -773257
+
+
+Pad.pad_19_1.experiment: engineering
+Pad.pad_19_1.y: .001*\engineering::top.power_system.correct_coil:cur
+Pad.pad_19_1.event: tmx_tr16_2
+Pad.pad_19_1.title: "A Coil (kA)"
+Pad.pad_19_1.label: A Coil
+Pad.pad_19_1.global_defaults: -723073
+
+
+Pad.pad_21_1.experiment: analysis
+Pad.pad_21_1.y: \ANALYSIS::EFIT_AEQDSK:OLEFT
+Pad.pad_21_1.ymin: -.5
+Pad.pad_21_1.ymax: 4
+Pad.pad_21_1.event: efit_done
+Pad.pad_21_1.title: "LEFT Gap (cm)"//$shot
+Pad.pad_21_1.label: L  Gap
+Pad.pad_21_1.global_defaults: -772225
+
+Pad.pad_22_1.experiment: analysis
+Pad.pad_22_1.y: \ANALYSIS::EFIT_AEQDSK:ORIGHT
+Pad.pad_22_1.ymin: -.5
+Pad.pad_22_1.ymax: 4
+Pad.pad_22_1.event: efit_done
+Pad.pad_22_1.title: "RIGHT Gap (cm)"//$shot
+Pad.pad_22_1.label: R Gap
+Pad.pad_22_1.global_defaults: -772225
+
+Pad.pad_23_1.experiment: analysis
+Pad.pad_23_1.y: \ANALYSIS::EFIT_AEQDSK:DOUTU
+Pad.pad_23_1.ymin: 0
+Pad.pad_23_1.ymax: 1.
+Pad.pad_23_1.event: efit_done
+Pad.pad_23_1.title: "Delta U"//$shot
+Pad.pad_23_1.label: Up Triang.
+Pad.pad_23_1.global_defaults: -773257
+
+Pad.pad_24_1.experiment: analysis
+Pad.pad_24_1.y: \ANALYSIS::EFIT_AEQDSK:DOUTL
+Pad.pad_24_1.ymin: 0
+Pad.pad_24_1.ymax: 1.
+Pad.pad_24_1.event: efit_done
+Pad.pad_24_1.title: "Delta L"//$shot
+Pad.pad_24_1.label: Low. Triang.
+Pad.pad_24_1.global_defaults: -772225
+
+Pad.pad_25_1.experiment: analysis
+Pad.pad_25_1.x: dim_of(\ANALYSIS::EFIT_AEQDSK:DOUTL)
+Pad.pad_25_1.y: (\ANALYSIS::EFIT_AEQDSK:DOUTL+\ANALYSIS::EFIT_AEQDSK:DOUTU)/2.
+Pad.pad_25_1.ymin: 0
+Pad.pad_25_1.ymax: 1.
+Pad.pad_25_1.event: efit_done
+Pad.pad_25_1.title: "Average Triangularity"//$shot
+Pad.pad_25_1.label: Av Triang.
+Pad.pad_25_1.global_defaults: -773249
+
+Pad.pad_26_1.show_mode: 2
+Pad.pad_26_1.experiment: analysis
+Pad.pad_26_1.y: _k=\analysis::efit_aeqdsk:eout
+Pad.pad_26_1.ymin: .9
+Pad.pad_26_1.ymax: 1.8
+Pad.pad_26_1.event: efit_done
+Pad.pad_26_1.title: "kappa"//$shot
+Pad.pad_26_1.label: kappa
+Pad.pad_26_1.global_defaults: -773257
+
+Pad.pad_27_1.y: \ANALYSIS::EFIT_AEQDSK:VOUT
+Pad.pad_27_1.title: "Volume (cm3)"
+Pad.pad_27_1.label: Volume
+Pad.pad_27_1.global_defaults: -592905
+
+
+Pad.pad_29_1.experiment: analysis
+Pad.pad_29_1.y: \ANALYSIS::EFIT_AEQDSK:QPSIB
+Pad.pad_29_1.event: efit_done
+Pad.pad_29_1.title: "q_95"//$shot
+Pad.pad_29_1.label: q95
+Pad.pad_29_1.global_defaults: -723585
+
+Pad.pad_30_1.experiment: analysis
+Pad.pad_30_1.x: dim_of(_a)
+Pad.pad_30_1.y: _a=\ANALYSIS::EFIT_AEQDSK:aout;|||_r=\ANALYSIS::EFIT_AEQDSK:rout;|||_bt=\ANALYSIS::EFIT_AEQDSK:bcentr;|||_ip=\ANALYSIS::EFIT_AEQDSK:cpasma;|||_k=\ANALYSIS::EFIT_AEQDSK:eout;|||5.e4*_a^2*_bt*((1.+_k^2)/2.)*(1.+1.5*(_a/_r)^2)/(_ip*_r)|||||||||
+Pad.pad_30_1.ymin: 0
+Pad.pad_30_1.ymax: 8
+Pad.pad_30_1.event: efit_done
+Pad.pad_30_1.title: "q_eng"//$shot
+Pad.pad_30_1.label: q eng
+Pad.pad_30_1.global_defaults: -773761
+
+Pad.pad_31_1.experiment: analysis
+Pad.pad_31_1.y: \efit_aeqdsk:qqmagx
+Pad.pad_31_1.ymin: .5
+Pad.pad_31_1.ymax: 2.5
+Pad.pad_31_1.event: efit_done
+Pad.pad_31_1.title: "q0"
+Pad.pad_31_1.label: q0
+Pad.pad_31_1.global_defaults: -247937
+
+Pad.pad_32_1.experiment: analysis
+Pad.pad_32_1.y: \ANALYSIS::EFIT_AEQDSK:shearb
+Pad.pad_32_1.event: efit_done
+Pad.pad_32_1.title: "SHEARB"
+Pad.pad_32_1.label: SHEARB
+Pad.pad_32_1.global_defaults: -772225
+
+
+
+Pad.pad_1_2.experiment: analysis
+Pad.pad_1_2.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Pad.pad_1_2.y: _vsurf = deriv(\analysis::EFIT_SSIBRY)*$2pi;|||_Ip = -\analysis::efit_aeqdsk:cpasma;|||_poh=_vsurf*_ip/1.e6
+Pad.pad_1_2.ymin: -.5
+Pad.pad_1_2.ymax: 2
+Pad.pad_1_2.event: efit_done
+Pad.pad_1_2.title: "Ip*Vsurf"//$shot
+Pad.pad_1_2.label: I*V
+Pad.pad_1_2.global_defaults: -773761
+
+Pad.pad_2_2.experiment: analysis
+Pad.pad_2_2.default_node: \analysis::efit
+Pad.pad_2_2.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Pad.pad_2_2.y: _vsurf =  deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi ;|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA);|||_li = \analysis::efit_aeqdsk:ali;|||_L = _li*6.28*67.*1.e-9;|||_vi = _L*deriv(smooth1d(_ip,2));|||_poh=_ip*(_vsurf-_vi)/1.e6
+Pad.pad_2_2.ymin: -.5
+Pad.pad_2_2.ymax: 2
+Pad.pad_2_2.event: efit_done
+Pad.pad_2_2.title: "Poh (MW)"//$shot
+Pad.pad_2_2.label: Poh
+Pad.pad_2_2.global_defaults: -773761
+
+Pad.pad_3_2.experiment: rf
+Pad.pad_3_2.y: \rf::rf_power_net
+Pad.pad_3_2.event: rf_power_done
+Pad.pad_3_2.title: "Net forward power::"//$shot
+Pad.pad_3_2.label: P RF
+Pad.pad_3_2.global_defaults: -723585
+
+Pad.pad_4_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_4_2.x: _trf
+Pad.pad_4_2.y: _tt = dim_of(\analysis::efit_AEQDSK:CPASMA) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||||||||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2
+Pad.pad_4_2.event: efit_done
+Pad.pad_4_2.title: "P total (MW)"//$shot
+Pad.pad_4_2.label: Ptot
+Pad.pad_4_2.global_defaults: -773769
+
+Pad.pad_5_2.experiment: analysis
+Pad.pad_5_2.x: _t
+Pad.pad_5_2.y: _t = dim_of(\analysis::efit_ssibry)  ,|||_wmhd=\ANALYSIS::EFIT_AEQDSK:wplasm,|||_dwdt=deriv(smooth1d(_wmhd,2))/1.e6|||
+Pad.pad_5_2.event: efit_done
+Pad.pad_5_2.title: "dWs/dt"//$shot
+Pad.pad_5_2.label: dW/dt
+Pad.pad_5_2.global_defaults: -773761
+
+Pad.pad_6_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_6_2.x: _trf
+Pad.pad_6_2.y: _frf = 0.8,|||_tt = dim_of(\analysis::efit_ssibry)  ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),||||||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||_prf = smooth1d(_prf,100),|||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_wmhd=\ANALYSIS::EFIT_AEQDSK:wplasm,|||_dwdt=make_signal(deriv(smooth1d(_wmhd,2))/1.e6,*,_tt),|||_dwdt = MdsMisc->Resample:dsc(xd(_dwdt),xd(_trf)),||||||_ploss = _ptot-_dwdt|||
+Pad.pad_6_2.ymin: -.1
+Pad.pad_6_2.event: efit_done
+Pad.pad_6_2.title: "Ploss"//$shot
+Pad.pad_6_2.label: Ploss
+Pad.pad_6_2.global_defaults: -773761
+
+Pad.pad_7_2.experiment: cmod,mhd,analysis,rf,spectroscopy
+Pad.pad_7_2.x: _trf
+Pad.pad_7_2.y: _frf=0.8,|||_tt = dim_of(\analysis::efit_ssibry),||||||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||_prf = smooth1d(_prf,100),|||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_prad = MDSMISC->RESAMPLE:DSC(XD(smooth1d(\spectroscopy::twopi_foil/1.e6,10)),XD(_trf)),||||||_wmhd = \ANALYSIS::EFIT_AEQDSK:wplasm,|||_dwdt = make_signal(deriv(smooth1d(_wmhd,2))/1.e6,*,_tt),|||_dwdt = MdsMisc->Resample:dsc(xd(_dwdt),xd(_trf)),||||||_pnet = _ptot-_dwdt - _prad
+Pad.pad_7_2.ymin: -.1
+Pad.pad_7_2.event: pradm_done
+Pad.pad_7_2.title: "Pnet"//$shot
+Pad.pad_7_2.label: Pnet
+Pad.pad_7_2.global_defaults: -773761
+
+Pad.pad_8_2.experiment: cmod,mhd,analysis,rf,electrons
+Pad.pad_8_2.x: _trf
+Pad.pad_8_2.y: _frf=0.8,_tt = dim_of(\analysis::efit_AEQDSK:CPASMA) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||||||||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_chord = make_signal(.01*\analysis::efit_aeqdsk:rco2v[5,*],*,_tt),|||_chord2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_chord2 = 0.6,||||||_dens = \electrons::top.tci.results:nl_04/1.e20,|||_tdens=dim_of(_dens),|||_dens = make_signal(_dens,*,_tdens),|||_ds2 = MdsMisc->Resample:dsc(xd(_dens),xd(_trf)),|||_dens2 = _ds2/_chord2,||||||_bt = make_signal(-\ANALYSIS::EFIT_AEQDSK:btaxp,*,_tt),|||_bt2 = MdsMisc->Resample:dsc(xd(_bt),xd(_trf)),|||_ptot/_bt2/_dens2||||||
+Pad.pad_8_2.ymin: -.1
+Pad.pad_8_2.ymax: .5
+Pad.pad_8_2.event: rf_power_done
+Pad.pad_8_2.title: "P/nBS"//$shot
+Pad.pad_8_2.label: P/nBS
+Pad.pad_8_2.global_defaults: -773769
+
+Pad.pad_9_2.experiment: lh
+Pad.pad_9_2.y: \lh::top.results:netpow/1.e3
+Pad.pad_9_2.event: lhpostdone
+Pad.pad_9_2.title: "LH Power[kW]"//$shot
+Pad.pad_9_2.label: P_LH
+Pad.pad_9_2.global_defaults: -199809
+
+Pad.pad_10_2.y.grid_lines: 6
+Pad.pad_10_2.experiment: dnb
+Pad.pad_10_2.default_node: \top
+Pad.pad_10_2.x: dim_of(_v)
+Pad.pad_10_2.y: \i_beam*(_v = \V_beam)/1000
+Pad.pad_10_2.ymin: -10.
+Pad.pad_10_2.event: dnb_traq_done
+Pad.pad_10_2.title: "DNB (kW)"//$shot
+Pad.pad_10_2.label: P_dnb
+Pad.pad_10_2.global_defaults: -773761
+
+Pad.pad_11_2.experiment: cmod,mhd,analysis,rf,lh
+Pad.pad_11_2.x: _t
+Pad.pad_11_2.y: _frf=0.8,_tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_wmhd = 1.e-6*\analysis::efit_aeqdsk:wplasm,|||_prf = \rf::rf_power_net,|||_trf = dim_of(_prf),|||_plh = \lh::top.results:netpow/1.e3,|||_tlh = dim_of(_plh),||||||_t = .1 + .001*(0:1900),|||_w = MdsMisc->Resample:dsc(xd(_wmhd),xd(_t)),|||_wmhd = make_signal(_w,*,_t),|||_dwdt = deriv(smooth1d(_wmhd,20)),|||_poh = MdsMisc->Resample:dsc(xd(_poh),xd(_t)),|||_prf = MdsMisc->Resample:dsc(xd(_prf),xd(_t)),|||_plh = MdsMisc->Resample:dsc(xd(_plh),xd(_t)),|||_ptot = (_poh+_frf*_prf+_plh-_dwdt)|||
+Pad.pad_11_2.ymin: -.01
+Pad.pad_11_2.event: rf_power_done
+Pad.pad_11_2.title: "Ptot"//$shot
+Pad.pad_11_2.label: Ptot (LH)
+Pad.pad_11_2.global_defaults: -773761
+
+Pad.pad_12_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_12_2.x: _tt
+Pad.pad_12_2.y: _tt = dim_of(\analysis::efit_ssibry),|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_wmhd = \ANALYSIS::EFIT_AEQDSK:wplasm/1.e6,|||_ph_cmod = (10.*_wmhd/_ip)^2||||||
+Pad.pad_12_2.ymin: -.001
+Pad.pad_12_2.event: efit_done
+Pad.pad_12_2.title: "PH_C-Mod"//$shot
+Pad.pad_12_2.label: PH C-Mod
+Pad.pad_12_2.global_defaults: -773761
+
+Pad.pad_13_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_13_2.x: _tefit
+Pad.pad_13_2.y: _tefit = dim_of(\analysis::efit_ssibry),|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_wmhd = \ANALYSIS::EFIT_AEQDSK:wplasm/1.e6,||||||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv),||||||_pl_cmod = (14.7*_wmhd/(_rr^1.2*_a^.3*_kappa^.5*_bt^.2*_ip^.85))^2 ||||||
+Pad.pad_13_2.ymin: -.001
+Pad.pad_13_2.event: efit_done
+Pad.pad_13_2.title: "PL_C-Mod"//$shot
+Pad.pad_13_2.label: PL C-Mod
+Pad.pad_13_2.global_defaults: -773761
+
+Pad.pad_14_2.show_mode: 2
+Pad.pad_14_2.experiment: cmod,rf,mhd,analysis
+Pad.pad_14_2.x: _t
+Pad.pad_14_2.y: _t = .1 + .001*[0:1900],|||_t = dim_of(\analysis::efit_ssibry),|||_prf = smooth1d((\rf::rf_power_net),100),|||_prf2 = MdsMisc->Resample:dsc(XD(_prf),XD(_t)),|||_frac = (_pl_cmod-_poh)/_prf2
+Pad.pad_14_2.ymin: 0
+Pad.pad_14_2.ymax: 1
+Pad.pad_14_2.event: rf_power_done
+Pad.pad_14_2.title: "Absorbed fraction "//$shot
+Pad.pad_14_2.label: RF frac
+Pad.pad_14_2.global_defaults: -773801
+
+Pad.pad_15_2.experiment: rf
+Pad.pad_15_2.x: _Dx=[0,.4,.57,.6,.57,.4,0,0],|||_Ex=[.6,0,0,.6,0,0,.6],|||_Jx=[0,.6,.3,.3,.25,.15,.05,0],|||_3x=[0,.6,.6,.2,.6,.6,0],|||_4x=[0,0,.6,.5,.5,.5],|||_trf=dim_of(\rf_power_d)/4,|||[dim_of(\rf_power_net),|||$roprand,_trf,$roprand,_Dx*0.05+0.05,|||$roprand,_trf,$roprand,_Ex*0.05+0.05,|||$roprand,_trf,$roprand,_Jx*0.05+0.05,$roprand,_3x*0.05+0.09,|||$roprand,_trf,$roprand,_Jx*0.05+0.05,$roprand,_4x*0.05+0.09]
+Pad.pad_15_2.y: _Dy=[0,.1,.4,.5,.6,.9,1,0], |||_Ey=[0,0,.5,.5,.5,1,1],|||_Jy=[1,1,1,.3,.1,0,.1,.3],|||_3y=[1,1,.5,.5,.5,0,0],|||_4y=[1,.5,.5,.5,1,0],|||[\rf_power_net,|||$roprand,(\rf_power_d/2),$roprand,_Dy/2+.25,|||$roprand,(1+\rf_power_e/2),$roprand,_Ey/2+1.25,|||$roprand,(2+\rf_power_j3/2),$roprand,_Jy/2+2.25,$roprand,_3y/2+2.25,|||$roprand,(3+\rf_power_j4/2),$roprand,_Jy/2+3.25,$roprand,_4y/2+3.25]
+Pad.pad_15_2.ymin: -.2
+Pad.pad_15_2.ymax: 4.2
+Pad.pad_15_2.event: rf_power_done
+Pad.pad_15_2.title: "P_RF (MW)"//$shot
+Pad.pad_15_2.label: Picrf D,E,J1,J2
+Pad.pad_15_2.global_defaults: -249473
+
+Pad.pad_16_2.step_plot: 1
+Pad.pad_16_2.experiment: spectroscopy
+Pad.pad_16_2.x: dim_of(\prad_2pi)
+Pad.pad_16_2.y: 3.e-3*\prad_2pi
+Pad.pad_16_2.event: raw_axuv_edge_2_done
+Pad.pad_16_2.title: "2PI Diode"//$shot  
+Pad.pad_16_2.label: Prad 2pi Diode
+Pad.pad_16_2.global_defaults: 274807
+
+Pad.pad_17_2.step_plot: 1
+Pad.pad_17_2.experiment: spectroscopy
+Pad.pad_17_2.y: smooth1d(\twopi_foil/1.e6,10)
+Pad.pad_17_2.event: 2pifoil_done
+Pad.pad_17_2.title: "2 PI Bolometer - Foil"//$shot  
+Pad.pad_17_2.label: Foil 2pi
+Pad.pad_17_2.global_defaults: 274807
+
+Pad.pad_18_2.step_plot: 1
+Pad.pad_18_2.experiment: spectroscopy
+Pad.pad_18_2.y: \spectroscopy::top.bolometer.results.foil:main_power /1.e6
+Pad.pad_18_2.ymin: -.1
+Pad.pad_18_2.event: pradm_done
+Pad.pad_18_2.title: "Bolometer"//$shot  
+Pad.pad_18_2.label: Prad Bolo Main
+Pad.pad_18_2.global_defaults: 274807
+
+Pad.pad_19_2.step_plot: 1
+Pad.pad_19_2.experiment: spectroscopy
+Pad.pad_19_2.y: \top.bolometer.results.diode:prad_axuv
+Pad.pad_19_2.event: raw_axuv_edge_2_done
+Pad.pad_19_2.title: "Prad AXUV"//$shot  
+Pad.pad_19_2.label: Prad AXUV
+Pad.pad_19_2.global_defaults: 274807
+
+Pad.pad_20_2.experiment: cmod,mhd,analysis,rf,electrons,spectroscopy
+Pad.pad_20_2.x: _trf
+Pad.pad_20_2.y: _tt = dim_of(\analysis::efit_ssibry) ,||||||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),||||||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||_prf = smooth1d(_prf,10),|||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_prad=1.e-6*MdsMisc->Resample:dsc(xd(smooth1d(\spectroscopy::top.bolometer.results.main:main_power,10)),xd(_trf)),|||_frac = _prad/_ptot
+Pad.pad_20_2.ymin: -.1
+Pad.pad_20_2.ymax: 1.2
+Pad.pad_20_2.event: pradm_done
+Pad.pad_20_2.title: "PradM/Ptot"//$shot
+Pad.pad_20_2.label: PradM/Ptot
+Pad.pad_20_2.global_defaults: -773761
+
+Pad.pad_21_2.experiment: cmod,mhd,analysis,rf,electrons,spectroscopy
+Pad.pad_21_2.x: _trf
+Pad.pad_21_2.y: _tt = dim_of(\analysis::efit_ssibry) ,||||||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),||||||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||_prf = smooth1d(_prf,10),|||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_prad=1.e-6*MdsMisc->Resample:DSC(XD(smooth1d(\spectroscopy::twopi_foil,10)),XD(_trf)),||||||_frac = _prad/_ptot
+Pad.pad_21_2.ymin: -.1
+Pad.pad_21_2.ymax: 1.2
+Pad.pad_21_2.event: 2pifoil_done
+Pad.pad_21_2.title: "Prad/Ptot"//$shot
+Pad.pad_21_2.label: Prad2pifoil/Ptot
+Pad.pad_21_2.global_defaults: -773761
+
+Pad.pad_22_2.experiment: cmod,mhd,analysis,rf,electrons,spectroscopy
+Pad.pad_22_2.x: _tt
+Pad.pad_22_2.y: _tt = dim_of(\analysis::efit_ssibry) ,||||||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=1.e-6*_ip*(_vsurf-_vi),|||_prf=MDSMISC->RESAMPLE:DSC(XD(\rf::rf_power_net),XD(_tt)),|||_ptot = _frf*_prf+_poh,||||||_wmhd=\ANALYSIS::EFIT_AEQDSK:wplasm,|||_dwdt=deriv(smooth1d(_wmhd,2))/1.e6,||||||_ptot = _ptot - _dwdt,||||||_prad=1.e-6*MDSMISC->RESAMPLE:DSC(XD(smooth1d(\spectroscopy::top.bolometer.results.main:main_power,4)),XD(_tt)),||||||_frac = _prad/_ptot
+Pad.pad_22_2.ymin: -.1
+Pad.pad_22_2.ymax: 1.2
+Pad.pad_22_2.event: pradm_done
+Pad.pad_22_2.title: "Prad/(Ptot-dW/dt)"//$shot
+Pad.pad_22_2.label: Prad/(Ptot-dW/dt)
+Pad.pad_22_2.global_defaults: -773761
+
+Pad.pad_23_2.experiment: cmod,mhd,analysis,rf,electrons,spectroscopy
+Pad.pad_23_2.x: _trf
+Pad.pad_23_2.y: _tt = dim_of(\analysis::efit_ssibry) ,||||||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),||||||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||_prf = smooth1d(_prf,10),|||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2,||||||_prad=4e-3*MdsMisc->Resample:dsc(xd(\spectroscopy::prad_2pi),xd(_trf)),|||_frac = _prad/_ptot
+Pad.pad_23_2.ymin: -.1
+Pad.pad_23_2.ymax: 1.2
+Pad.pad_23_2.event: raw_axuv_edge_2_done
+Pad.pad_23_2.title: "Prad2pi/Ptot"//$shot
+Pad.pad_23_2.label: Prad2pi/Ptot
+Pad.pad_23_2.global_defaults: -773761
+
+
+Pad.pad_25_2.show_mode: 2
+Pad.pad_25_2.experiment: analysis
+Pad.pad_25_2.y: _a=\analysis::efit_aeqdsk:ali
+Pad.pad_25_2.ymin: -.1
+Pad.pad_25_2.ymax: 2.1
+Pad.pad_25_2.event: efit_done
+Pad.pad_25_2.title: "li"//$shot
+Pad.pad_25_2.label: li
+Pad.pad_25_2.global_defaults: -773257
+
+Pad.pad_26_2.experiment: analysis
+Pad.pad_26_2.y: \ANALYSIS::EFIT_AEQDSK:BETAT
+Pad.pad_26_2.ymin: 0
+Pad.pad_26_2.ymax: 1
+Pad.pad_26_2.event: efit_done
+Pad.pad_26_2.title: "BETAT"//$shot
+Pad.pad_26_2.label: BETAT
+Pad.pad_26_2.global_defaults: -772225
+
+Pad.pad_27_2.experiment: analysis
+Pad.pad_27_2.default_node: \ANALYSIS::EFIT_AEQDSK
+Pad.pad_27_2.x: dim_of(betat)
+Pad.pad_27_2.y: 1.e4*aout*btaxv*betat/cpasma
+Pad.pad_27_2.ymax: 1.8
+Pad.pad_27_2.event: efit_done
+Pad.pad_27_2.title: "BETAN"//$shot
+Pad.pad_27_2.label: BETAN
+Pad.pad_27_2.global_defaults: -773761
+
+Pad.pad_28_2.experiment: analysis
+Pad.pad_28_2.y: \ANALYSIS::EFIT_AEQDSK:BETAP
+Pad.pad_28_2.ymin: 0
+Pad.pad_28_2.ymax: 1
+Pad.pad_28_2.event: efit_done
+Pad.pad_28_2.title: "BETAP"//$shot
+Pad.pad_28_2.label: BETAP
+Pad.pad_28_2.global_defaults: -247937
+
+Pad.pad_29_2.experiment: magnetics 
+Pad.pad_29_2.y: \magnetics::mag_wpdiam/1.e6
+Pad.pad_29_2.event: mag_wpdiam_done
+Pad.pad_29_2.title: "Wdia "//$shot
+Pad.pad_29_2.label: Wdia
+Pad.pad_29_2.global_defaults: 12544
+
+Pad.pad_30_2.experiment: magnetics 
+Pad.pad_30_2.y: \magnetics::mag_processed_diam:wpdiam_comp/1.e6
+Pad.pad_30_2.event: mag_wpdiam_comp_done
+Pad.pad_30_2.title: "Wdia Corrected"//$shot
+Pad.pad_30_2.label: Wdia Corrected
+Pad.pad_30_2.global_defaults: 12544
+
+Pad.pad_31_2.experiment: analysis
+Pad.pad_31_2.y: \ANALYSIS::EFIT_AEQDSK:wplasm/1.e6
+Pad.pad_31_2.event: efit_done
+Pad.pad_31_2.title: "Wmhd"//$shot
+Pad.pad_31_2.label: Wmhd
+Pad.pad_31_2.global_defaults: -773769
+
+Pad.pad_32_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_32_2.x: _tt
+Pad.pad_32_2.y: _tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=_ip*(_vsurf-_vi),||||||_prf = make_signal(data(\rf::rf_power_net), *,data(dim_of(\rf::rf_power_net))),|||_prf = smooth1d(_prf,100),|||_prf=MDSMISC->RESAMPLE:DSC(XD(_prf),XD(_tt)),||||||_ptot = _frf*_prf+_poh,|||_wcmod=.1*_ip*_ptot^0.5||||||
+Pad.pad_32_2.ymin: -.001
+Pad.pad_32_2.event: efit_done
+Pad.pad_32_2.title: "WH_C-Mod"//$shot
+Pad.pad_32_2.label: WH C-Mod
+Pad.pad_32_2.global_defaults: -773761
+
+Pad.pad_33_2.experiment: cmod,mhd,analysis,rf
+Pad.pad_33_2.x: _tt
+Pad.pad_33_2.y: _tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=_ip*(_vsurf-_vi),||||||_prf = make_signal(data(\rf::rf_power_net), *,data(dim_of(\rf::rf_power_net))),|||_prf = smooth1d(_prf,100),|||_prf=MDSMISC->RESAMPLE:DSC(XD(_prf),XD(_tt)),||||||_ptot = _frf*_prf+_poh,|||_wcmod=.05*_ip*_ptot^0.5||||||
+Pad.pad_33_2.ymin: -.001
+Pad.pad_33_2.event: efit_done
+Pad.pad_33_2.title: "WL_C-Mod"//$shot
+Pad.pad_33_2.label: WL C-Mod
+Pad.pad_33_2.global_defaults: -773761
+
+Pad.pad_34_2.experiment: analysis
+Pad.pad_34_2.x: dim_of(_w)
+Pad.pad_34_2.y: (_w=\ANALYSIS::EFIT_AEQDSK:wplasm)/\analysis::efit_aeqdsk:vout/.1515
+Pad.pad_34_2.event: efit_done
+Pad.pad_34_2.title: "<P> (atm)"//$shot
+Pad.pad_34_2.label: <P>
+Pad.pad_34_2.global_defaults: -773769
+
+Pad.pad_1_3.show_mode: 2
+Pad.pad_1_3.experiment: electrons
+Pad.pad_1_3.y: \thom_midpln:te_t
+Pad.pad_1_3.event: yag_new_ready
+Pad.pad_1_3.title: "Te0 YAG"//$shot
+Pad.pad_1_3.label: Te0 YAG
+Pad.pad_1_3.global_defaults: -723593
+
+Pad.pad_2_3.show_mode: 2
+Pad.pad_2_3.experiment: electrons
+Pad.pad_2_3.y: \thom_midpln:ne_t/1.e20
+Pad.pad_2_3.event: yag_new_ready
+Pad.pad_2_3.title: "ne0 YAG"//$shot
+Pad.pad_2_3.label: ne0 YAG
+Pad.pad_2_3.global_defaults: -723593
+
+Pad.pad_3_3.show_mode: 2
+Pad.pad_3_3.experiment: electrons
+Pad.pad_3_3.default_node: \thom_midpln
+Pad.pad_3_3.x: dim_of(te_t)
+Pad.pad_3_3.y: 1.5*1.6e-22*.65*ne_t*te_t
+Pad.pad_3_3.event: yag_temps_ready
+Pad.pad_3_3.title: "We(0) YAG (MJ/m3)"//$shot
+Pad.pad_3_3.label: Pe(0) YAG
+Pad.pad_3_3.global_defaults: -724617
+
+Pad.pad_4_3.experiment: edge
+Pad.pad_4_3.y: \top.xthomson.results:ne_ped_width
+Pad.pad_4_3.title: "Edge Thomson ne Width "//$SHOT
+Pad.pad_4_3.label: TS ped wid
+Pad.pad_4_3.global_defaults: -642689
+
+Pad.pad_5_3.experiment: cmod,mhd,analysis,electrons
+Pad.pad_5_3.x: _tt
+Pad.pad_5_3.y: _tt = dim_of(\analysis::efit_aeqdsk:aout) ,|||_chord = .01*\analysis::efit_aeqdsk:rco2v[0,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_01,|||_td = dim_of(\electrons::top.tci.results:nl_01),|||_dens = smooth1d(_dns,4),|||_dens = MdsMisc->Resample:dsc(xd(_dens),xd(_tt)),|||_dens=_dens/_chord,|||_d0=0.85e-20*\electrons::thom_midpln:ne_t,|||_d0 = MdsMisc->Resample:dsc(xd(_d0),xd(_tt)),|||_d0/_dens
+Pad.pad_5_3.event: efit_done
+Pad.pad_5_3.title: "ne0/nel"//$shot
+Pad.pad_5_3.label: ne0/nel
+Pad.pad_5_3.global_defaults: -773761
+
+
+Pad.pad_7_3.show_mode: 2
+Pad.pad_7_3.experiment: electrons 
+Pad.pad_7_3.y: _te=\electrons::top.ece.results:ece_tmax
+Pad.pad_7_3.event: ece_results
+Pad.pad_7_3.title: "Te0 ECE (M) "//$shot
+Pad.pad_7_3.label: Te0 ECE (M)
+Pad.pad_7_3.global_defaults: -724105
+
+Pad.pad_8_3.show_mode: 2
+Pad.pad_8_3.experiment: electrons 
+Pad.pad_8_3.x: dim_of(_te)
+Pad.pad_8_3.y: _te=\electrons::top.ece.results:ece_te[*,1.]
+Pad.pad_8_3.xmin: .44
+Pad.pad_8_3.xmax: .91
+Pad.pad_8_3.event: ece_results
+Pad.pad_8_3.title: "Te(R) ECE (M) "//$shot
+Pad.pad_8_3.label: Te(R) ECE (M)
+Pad.pad_8_3.global_defaults: -736393
+
+Pad.pad_9_3.experiment: electrons
+Pad.pad_9_3.y: \ece_raw
+Pad.pad_9_3.event: ece_raw
+Pad.pad_9_3.title: "ECE raw data"
+Pad.pad_9_3.label: ECE (M) - raw
+Pad.pad_9_3.global_defaults: -724609
+
+Pad.pad_10_3.experiment: electrons
+Pad.pad_10_3.y: \gpc_te1
+Pad.pad_10_3.event: aur1_done
+Pad.pad_10_3.title: "Te0  ECE (GPC) "//$shot 
+Pad.pad_10_3.label: Te0 ECE (GPC)
+Pad.pad_10_3.global_defaults: 323966
+
+Pad.pad_11_3.experiment: electrons
+Pad.pad_11_3.y: \gpc_te8
+Pad.pad_11_3.event: aur2_done
+Pad.pad_11_3.title: "Te8 (GPC) "//$shot 
+Pad.pad_11_3.label: Te8 (GPC)
+Pad.pad_11_3.global_defaults: 323966
+
+Pad.pad_12_3.y.grid_lines: 3
+Pad.pad_12_3.experiment: electrons
+Pad.pad_12_3.y: _r8=\ELECTRONS::gpc_r8 
+Pad.pad_12_3.ymin: .65
+Pad.pad_12_3.ymax: .95
+Pad.pad_12_3.event: gpc_batch_done
+Pad.pad_12_3.title: ' R 8'//$shot
+Pad.pad_12_3.label: GPC R8
+Pad.pad_12_3.global_defaults: -249057
+
+Pad.pad_13_3.experiment: electrons
+Pad.pad_13_3.y: .ece.hardware:aur14_1:input_3
+Pad.pad_13_3.event: aur1_done
+Pad.pad_13_3.title: "ECE poly 1,3" //$shot 
+Pad.pad_13_3.label: GPC raw
+Pad.pad_13_3.global_defaults: 323966
+
+Pad.pad_14_3.experiment: electrons
+Pad.pad_14_3.x: _t
+Pad.pad_14_3.y: _te8 = \gpc_te8 ,|||_te9 = \gpc_te9,|||_te95 = 0.33*_te8 + 0.66*_te9,|||_t = dim_of(_te8),|||_te95
+Pad.pad_14_3.event: aur1_done
+Pad.pad_14_3.title: "Te95 (GPC) "//$shot 
+Pad.pad_14_3.label: Te95 (GPC)
+Pad.pad_14_3.global_defaults: 323966
+
+
+Pad.pad_16_3.experiment: electrons
+Pad.pad_16_3.y: _chan=12,\ELECTRONS::GPC2_TE[*,_chan]
+Pad.pad_16_3.event: GPC2_TE_DONE
+Pad.pad_16_3.title: "GPC2 Te (keV)   Chan "//trim(adjustl(_chan))//$shot
+Pad.pad_16_3.label: GPC2 Te
+Pad.pad_16_3.global_defaults: -724097
+
+Pad.pad_17_3.experiment: electrons
+Pad.pad_17_3.y: _chan=12,\ELECTRONS::GPC2_R[*,_chan]
+Pad.pad_17_3.event: GPC2_R_DONE
+Pad.pad_17_3.title: "GPC2  R(m) Channel"//_chan//$shot
+Pad.pad_17_3.label: GPC2 R
+Pad.pad_17_3.global_defaults: -724097
+
+Pad.pad_18_3.show_mode: 2
+Pad.pad_18_3.experiment: electrons
+Pad.pad_18_3.x: \ELECTRONS::GPC2_R[_time,*]
+Pad.pad_18_3.y: _time=1.005,\ELECTRONS::GPC2_TE[_time,*]
+Pad.pad_18_3.xmin: .44
+Pad.pad_18_3.xmax: .9
+Pad.pad_18_3.ymin: -.1
+Pad.pad_18_3.ymax: 2
+Pad.pad_18_3.event: GPC2_TE_DONE
+Pad.pad_18_3.title: "GPC2 Te (keV)   "//trim(adjustl(_time))//$shot
+Pad.pad_18_3.label: GPC2 Profile
+Pad.pad_18_3.global_defaults: -785546
+
+Pad.pad_19_3.step_plot: 1
+Pad.pad_19_3.experiment: electrons
+Pad.pad_19_3.y: \te_hrece28
+Pad.pad_19_3.ymin: 0
+Pad.pad_19_3.ymax: 4
+Pad.pad_19_3.event: Zeff_done
+Pad.pad_19_3.title: "Te FRC-28"//$shot  
+Pad.pad_19_3.label: Te FRC 28
+Pad.pad_19_3.global_defaults: 274807
+
+
+Pad.pad_21_3.experiment: cmod,mhd,analysis,rf
+Pad.pad_21_3.x: _t
+Pad.pad_21_3.y: _frf=0.8,_tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_wmhd = 1.e-6*\analysis::efit_aeqdsk:wplasm,|||_dwdt=make_signal(deriv(smooth1d(_wmhd,2)),*,_tt),|||_prf = \rf::rf_power_net,|||_trf = dim_of(_prf),||||||_t = .1 + .001*(0:1900),|||_wmhd = MdsMisc->Resample:dsc(xd(_wmhd),xd(_t)),|||_dwdt = deriv(smooth1d(_wmhd,2)),|||_poh = MdsMisc->Resample:dsc(xd(_poh),xd(_t)),|||_prf = MdsMisc->Resample:dsc(xd(_prf),xd(_t)),|||_tau = _wmhd/(_poh+_frf*_prf-_dwdt)|||
+Pad.pad_21_3.ymin: -.01
+Pad.pad_21_3.ymax: .1
+Pad.pad_21_3.event: efit_done
+Pad.pad_21_3.title: "Tau MHD"//$shot
+Pad.pad_21_3.label: Tau MHD
+Pad.pad_21_3.global_defaults: -773761
+
+Pad.pad_22_3.experiment: cmod,mhd,analysis,rf,electrons
+Pad.pad_22_3.x: _t
+Pad.pad_22_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=make_signal(_ip*(_vsurf-_vi),*,_tt),||||||_prf = \rf::rf_power_net,|||_t = 0.1 + .001*(0:1900),||||||_rr=MdsMisc->Resample:dsc(XD(_rr),XD(_t)),|||_a=MdsMisc->Resample:dsc(XD(_a),XD(_t)),|||_kappa=MdsMisc->Resample:dsc(XD(_kappa),XD(_t)),|||_poh=MdsMisc->Resample:dsc(XD(_poh),XD(_t)),|||_bt=MdsMisc->Resample:dsc(XD(_bt),XD(_t)),|||_ip=MdsMisc->Resample:dsc(XD(_ip),XD(_t)),|||_prf=MdsMisc->Resample:dsc(XD(_prf),XD(_t)),||||||_ptot = _frf*_prf+_poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqdsk:rco2v[5,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_04,|||_td = dim_of(_dns),|||_dns = smooth1d(_dns,4)/.54,|||_dns = make_signal(_dns,*,_td),|||_dens = MdsMisc->Resample:dsc(xd(_dns),xd(_t)),|||_dens = _dens*(_dens > 0) + 0.01*(_dens > 0),||||||_tau89=.048*_dens^.1*2^.5*_ip^.85*_rr^1.2*_a^.3*_kappa^.5*_bt^.2/(_ptot^.5)
+Pad.pad_22_3.ymin: -.025
+Pad.pad_22_3.ymax: 0.12
+Pad.pad_22_3.event: rf_power_done
+Pad.pad_22_3.title: "Tau ITER89"//$shot
+Pad.pad_22_3.label: Tau ITER89
+Pad.pad_22_3.global_defaults: -773769
+
+Pad.pad_23_3.experiment: cmod,mhd,analysis,rf,electrons
+Pad.pad_23_3.x: _tt
+Pad.pad_23_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=_ip*(_vsurf-_vi),|||_prf = make_signal(data(\rf::rf_power_net),*,data(dim_of(\rf::rf_power_net))),|||_prf = smooth1d(_prf,100),|||_prf=MDSMISC->RESAMPLE:DSC(XD(_prf),XD(_tt)),|||_ptot = _frf*_prf+_poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), |||_wmhd = \analysis::efit_aeqdsk:wplasm/1.e6,|||_dwdt = deriv(smooth1d(_wmhd,2)),|||_ploss = _ptot-_dwdt,|||_ploss = _ploss*(_ploss>0) + 1.e9*(_ploss<0),||||||_chord = .01*\analysis::efit_aeqdsk:rco2v[0,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_01,|||_dns = smooth1d(_dns,4),|||_dens = MdsMisc->Resample:dsc(xd(_dn
+Pad.pad_23_3.event: efit_done
+Pad.pad_23_3.title: "Tau ITER89 (w PLoss)"//$shot
+Pad.pad_23_3.label: Tau ITER89 (PL)
+Pad.pad_23_3.global_defaults: -773761
+
+Pad.pad_24_3.experiment: cmod,analysis
+Pad.pad_24_3.x: dim_of(\analysis::efit_aeqdsk:cpasma)
+Pad.pad_24_3.y: _taus=_tau89*(_tau89>1.e-3) + 1.e9*(_tau89< 1.e-3),|||_tau/_taus
+Pad.pad_24_3.ymin: -.1
+Pad.pad_24_3.ymax: 3
+Pad.pad_24_3.event: tci_invert
+Pad.pad_24_3.title: "H ITER89"//$shot
+Pad.pad_24_3.label: H_89
+Pad.pad_24_3.global_defaults: -773761
+
+Pad.pad_25_3.experiment: cmod,mhd,analysis,rf,electrons
+Pad.pad_25_3.x: _t
+Pad.pad_25_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=make_signal(_ip*(_vsurf-_vi),*,_tt),||||||_prf = \rf::rf_power_net,|||_t = 0.1 + .001*(0:1900),||||||_rr=MdsMisc->Resample:dsc(XD(_rr),XD(_t)),|||_a=MdsMisc->Resample:dsc(XD(_a),XD(_t)),|||_kappa=MdsMisc->Resample:dsc(XD(_kappa),XD(_t)),|||_poh=MdsMisc->Resample:dsc(XD(_poh),XD(_t)),|||_bt=MdsMisc->Resample:dsc(XD(_bt),XD(_t)),|||_ip=MdsMisc->Resample:dsc(XD(_ip),XD(_t)),|||_prf=MdsMisc->Resample:dsc(XD(_prf),XD(_t)),||||||_ptot = _frf*_prf+_poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqds
+Pad.pad_25_3.ymin: -.025
+Pad.pad_25_3.ymax: 0.12
+Pad.pad_25_3.event: rf_power_done
+Pad.pad_25_3.title: "Tau ITER98y2"//$shot
+Pad.pad_25_3.label: Tau ITER98y2
+Pad.pad_25_3.global_defaults: -773769
+
+Pad.pad_26_3.experiment: cmod,analysis
+Pad.pad_26_3.x: _t
+Pad.pad_26_3.y: _taus=_tau98*(_tau98>1.e-3) + 1.e9*(_tau98< 1.e-3),_tau/_taus
+Pad.pad_26_3.ymin: -.1
+Pad.pad_26_3.ymax: 3
+Pad.pad_26_3.event: rf_power_done
+Pad.pad_26_3.title: "H ITER98y2"//$shot
+Pad.pad_26_3.label: H_98y2
+Pad.pad_26_3.global_defaults: -773761
+
+Pad.pad_27_3.experiment: cmod,mhd,analysis,rf
+Pad.pad_27_3.x: _tt
+Pad.pad_27_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=_ip*(_vsurf-_vi),|||_wmhd = \analysis::efit_aeqdsk:wplasm,|||_dwdt=deriv(smooth1d(_wmhd,2)),|||_prf = make_signal(data(\rf::rf_power_net), *,data(dim_of(\rf::rf_power_net))),|||_prf = smooth1d(_prf,100),|||_prf=1.e6*MdsMisc->Resample:dsc(xd(_prf),XD(_tt)),|||_ptot = (_poh+_frf*_prf-_dwdt),|||_wcmod = 1.e-10*(_ip*_ptot^.5),|||_hcmod = 1.e-6*_wmhd/_wcmod|||
+Pad.pad_27_3.ymin: -.01
+Pad.pad_27_3.event: efit_done
+Pad.pad_27_3.title: "H C-Mod"//$shot
+Pad.pad_27_3.label: H C-Mod
+Pad.pad_27_3.global_defaults: -773761
+
+Pad.pad_28_3.experiment: cmod,mhd,analysis,rf,lh
+Pad.pad_28_3.x: _t
+Pad.pad_28_3.y: _frf=0.8,_tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_wmhd = 1.e-6*\analysis::efit_aeqdsk:wplasm,|||_prf = \rf::rf_power_net,|||_trf = dim_of(_prf),|||_plh = \lh::top.results:netpow/1.e3,|||_tlh = dim_of(_plh),||||||_t = .1 + .001*(0:1900),|||_w = MdsMisc->Resample:dsc(xd(_wmhd),xd(_t)),|||_wmhd = make_signal(_w,*,_t),|||_dwdt = deriv(smooth1d(_wmhd,20)),|||_poh = MdsMisc->Resample:dsc(xd(_poh),xd(_t)),|||_prf = MdsMisc->Resample:dsc(xd(_prf),xd(_t)),|||_plh = MdsMisc->Resample:dsc(xd(_plh),xd(_t)),|||_tau = _wmhd/(_poh+_frf*_prf+_plh-_dwdt)|||
+Pad.pad_28_3.ymin: -.01
+Pad.pad_28_3.ymax: .1
+Pad.pad_28_3.event: rf_power_done
+Pad.pad_28_3.title: "Tau MHD"//$shot
+Pad.pad_28_3.label: Tau MHD (LH)
+Pad.pad_28_3.global_defaults: -773761
+
+Pad.pad_29_3.experiment: cmod,mhd,analysis,rf,electrons,lh
+Pad.pad_29_3.x: _t
+Pad.pad_29_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=make_signal(_ip*(_vsurf-_vi),*,_tt),||||||_prf = \rf::rf_power_net,|||_plh = \lh::top.results:netpow/1.e3,|||_tlh = dim_of(_plh),|||_t = 0.1 + .001*(0:1900),||||||_rr=MdsMisc->Resample:dsc(XD(_rr),XD(_t)),|||_a=MdsMisc->Resample:dsc(XD(_a),XD(_t)),|||_kappa=MdsMisc->Resample:dsc(XD(_kappa),XD(_t)),|||_poh=MdsMisc->Resample:dsc(XD(_poh),XD(_t)),|||_bt=MdsMisc->Resample:dsc(XD(_bt),XD(_t)),|||_ip=MdsMisc->Resample:dsc(XD(_ip),XD(_t)),|||_prf=MdsMisc->Resample:dsc(XD(_prf),XD(_t)),|||_plh = MdsMisc->Resample:dsc(XD(_plh),XD(_t)),|||_ptot = _frf*_prf+_poh+_plh,||||||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqdsk:rco2v[5,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_04,|||_td = dim_of(_dns),|||_dns = smooth1d(_dns,4)/.54,|||_dns = make_signal(_dns,*,_td),|||_dens = MdsMisc->Resample:dsc(xd(_dns),xd(_t)),|||_dens = _dens*(_dens > 0) + 0.01*(_dens > 0),||||||_tau89=.048*_dens^.1*2^.5*_ip^.85*_rr^1.2*_a^.3*_kappa^.5*_bt^.2/(_ptot^.5)
+Pad.pad_29_3.event: rf_power_done
+Pad.pad_29_3.title: "Tau ITER89"//$shot
+Pad.pad_29_3.label: Tau ITER89 (LH)
+Pad.pad_29_3.global_defaults: -773769
+
+
+Pad.pad_31_3.experiment: cmod,mhd,analysis,rf
+Pad.pad_31_3.x: _t
+Pad.pad_31_3.y: _frf=0.8,_tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_wmhd = 1.e-6*\analysis::efit_aeqdsk:wplasm,|||_dwdt=make_signal(deriv(smooth1d(_wmhd,2)),*,_tt),|||_prf = \rf::rf_power_net,|||_trf = dim_of(_prf),||||||_t = .1 + .001*(0:1900),|||_wmhd = MDSMISC->RESAMPLE:DSC(XD(_wmhd),XD(_t)),|||_dwdt = MDSMISC->RESAMPLE:DSC(XD(_dwdt),XD(_t)),|||_poh = MDSMISC->RESAMPLE:DSC(XD(_poh),XD(_t)),|||_prf = MDSMISC->RESAMPLE:DSC(XD(_prf),XD(_t)),|||_tau = _wmhd/(_poh+_frf*_prf-_dwdt)|||
+Pad.pad_31_3.ymin: -.01
+Pad.pad_31_3.ymax: .1
+Pad.pad_31_3.event: rf_power_done
+Pad.pad_31_3.title: "Tau MHD"//$shot
+Pad.pad_31_3.label: Tau Fast
+Pad.pad_31_3.global_defaults: -773761
+
+Pad.pad_32_3.experiment: cmod,mhd,analysis,rf,electrons
+Pad.pad_32_3.x: _t
+Pad.pad_32_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=make_signal(_ip*(_vsurf-_vi),*,_tt),||||||_prf = \rf::rf_power_net,|||_t = 0.1 + .001*(0:1900),||||||_rr=MDSMISC->RESAMPLE:DSC(XD(_rr),XD(_t)),|||_a=MDSMISC->RESAMPLE:DSC(XD(_a),XD(_t)),|||_kappa=MDSMISC->RESAMPLE:DSC(XD(_kappa),XD(_t)),|||_poh=MDSMISC->RESAMPLE:DSC(XD(_poh),XD(_t)),|||_bt=MDSMISC->RESAMPLE:DSC(XD(_bt),XD(_t)),|||_ip=MDSMISC->RESAMPLE:DSC(XD(_ip),XD(_t)),|||_prf=MDSMISC->RESAMPLE:DSC(XD(_prf),XD(_t)),||||||_ptot = _frf*_prf+_poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqds
+Pad.pad_32_3.ymin: -.025
+Pad.pad_32_3.ymax: 0.12
+Pad.pad_32_3.event: efit_done
+Pad.pad_32_3.title: "Tau ITER89"//$shot
+Pad.pad_32_3.label: Tau89 Fast
+Pad.pad_32_3.global_defaults: -773769
+
+Pad.pad_33_3.experiment: cmod,mhd,analysis
+Pad.pad_33_3.x: _tt
+Pad.pad_33_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=_ip*(_vsurf-_vi),|||_wmhd = \analysis::efit_aeqdsk:wplasm,|||_dwdt=deriv(smooth1d(_wmhd,2)),||||||_tau = make_signal(_wmhd/(_poh-_dwdt),*,_tt)|||
+Pad.pad_33_3.ymin: -.01
+Pad.pad_33_3.ymax: .1
+Pad.pad_33_3.event: efit_done
+Pad.pad_33_3.title: "Tau MHD (OH)"//$shot
+Pad.pad_33_3.label: Tau MHD OH
+Pad.pad_33_3.global_defaults: -773761
+
+Pad.pad_34_3.experiment: cmod,mhd,analysis,electrons
+Pad.pad_34_3.x: _tt
+Pad.pad_34_3.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=_ip*(_vsurf-_vi),|||_ptot = _poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqdsk:rco2v[0,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_01,|||_dns = smooth1d(_dns,4),|||_dens = MdsMisc->Resample:dsc(xd(_dns),xd(_tt)),|||_dens = _dens/_chord,||||||_tau89=make_signal(.048*_dens^.1*2^.5*_ip^.85*_rr^1.2*_a^.3*_kappa^.5*_bt^.2/(_ptot^.5),*,_tt)
+Pad.pad_34_3.event: efit_done
+Pad.pad_34_3.title: "Tau ITER89 (OH)"//$shot
+Pad.pad_34_3.label: Tau ITER89 OH
+Pad.pad_34_3.global_defaults: -773761
+
+Pad.pad_1_4.experiment: particles
+Pad.pad_1_4.y: \PARTICLES::TOP.NEUTRONS.GLOBAL.RESULTS:ion_temp
+Pad.pad_1_4.title: "Ti Neut"//$shot
+Pad.pad_1_4.label: Ti_Neut
+Pad.pad_1_4.global_defaults: -904330
+
+Pad.pad_2_4.experiment: particles
+Pad.pad_2_4.y: \PARTICLES::TOP.NEUTRONS.GLOBAL.RESULTS:NEUT_RATE
+Pad.pad_2_4.title: "Neutron Rate"//$shot
+Pad.pad_2_4.label: Neutrons
+Pad.pad_2_4.global_defaults: -904330
+
+Pad.pad_3_4.experiment: particles
+Pad.pad_3_4.y: \PARTICLES::TOP.NEUTRONS.he_3_bank.results:he3_nrate_2
+Pad.pad_3_4.event: he3_bank_done
+Pad.pad_3_4.title: "Rdd (2)"//$shot
+Pad.pad_3_4.label: Rdd_2
+Pad.pad_3_4.global_defaults: -1035402
+
+Pad.pad_4_4.experiment: particles
+Pad.pad_4_4.y: \PARTICLES::TOP.NEUTRONS.he_3_bank.results:he3_nrate_3
+Pad.pad_4_4.event: he3_bank_done
+Pad.pad_4_4.title: "Rdd (3)"//$shot
+Pad.pad_4_4.label: Rdd_3
+Pad.pad_4_4.global_defaults: -1035402
+
+Pad.pad_5_4.experiment: particles
+Pad.pad_5_4.y: log10(\PARTICLES::TOP.NEUTRONS.he_3_bank.results:he3_nrate)
+Pad.pad_5_4.event: he3_bank_done
+Pad.pad_5_4.title: "log(Rdd)"//$shot
+Pad.pad_5_4.print_title: "Time (s)"
+Pad.pad_5_4.label: log(Rdd)
+Pad.pad_5_4.global_defaults: -1035402
+
+Pad.pad_6_4.experiment: cmod,spectroscopy
+Pad.pad_6_4.y: \spectroscopy::neuts_hards
+Pad.pad_6_4.event: pcia12_1
+Pad.pad_6_4.title: "Neuts Hards"//$shot
+Pad.pad_6_4.label: Neuts Hards
+Pad.pad_6_4.global_defaults: -1035402
+
+
+Pad.pad_8_4.experiment: spectroscopy
+Pad.pad_8_4.x: \spectroscopy::top.hirex.analysis.hirex_2:time
+Pad.pad_8_4.y: \spectroscopy::top.hirex.analysis.hirex_2:temperature
+Pad.pad_8_4.title: "Ti Hirex"//$shot
+Pad.pad_8_4.label: Ti Hirex
+Pad.pad_8_4.global_defaults: -593537
+
+Pad.pad_9_4.show_mode: 2
+Pad.pad_9_4.experiment: spectroscopy
+Pad.pad_9_4.x: \SPECTROSCOPY::TOP.HIREXjr.ANALYSIS:TIME
+Pad.pad_9_4.y: \SPECTROSCOPY::TOP.HIREXjr.ANALYSIS:rot_velocity/1.e5 |||
+Pad.pad_9_4.ymin: -1.e2
+Pad.pad_9_4.ymax: 2.e2
+Pad.pad_9_4.title: "Vphi - km/s"//$shot
+Pad.pad_9_4.label: Vphi - HIREXjr
+Pad.pad_9_4.global_defaults: -773257
+
+Pad.pad_10_4.experiment: spectroscopy
+Pad.pad_10_4.x: dim_of(\spectroscopy::top.hirex.camac:scaler:input_6)[1:*]
+Pad.pad_10_4.y: data(\spectroscopy::top.hirex.camac:scaler:input_6)[1:*]
+Pad.pad_10_4.xmax: 1.8
+Pad.pad_10_4.event: hirex_scaler_done
+Pad.pad_10_4.title: 'hirexjr'//$shot
+Pad.pad_10_4.label: HIREXjr
+Pad.pad_10_4.global_defaults: -261761
+
+
+Pad.pad_12_4.experiment: particles
+Pad.pad_12_4.y: \PARTICLES::TOP.NPA.PCX.ANALYSIS.ION_TEMP:DEUT_TEMP
+Pad.pad_12_4.title: "Ti _NPA  (D)"//$shot
+Pad.pad_12_4.label: Ti _NPA  (D)
+Pad.pad_12_4.global_defaults: -592001
+
+Pad.pad_13_4.experiment: particles
+Pad.pad_13_4.y: \PARTICLES::TOP.NPA.PCX.ANALYSIS.ION_TEMP:HYDRO_TEMP
+Pad.pad_13_4.title: "Ti _NPA  (H)"//$shot
+Pad.pad_13_4.label: Ti _NPA  (H)
+Pad.pad_13_4.global_defaults: -592001
+
+Pad.pad_14_4.experiment: particles
+Pad.pad_14_4.y: \PARTICLES::TOP.NPA.PCX.ANALYSIS:H_D_RATIO
+Pad.pad_14_4.title: "H/D  (CX)"//$shot
+Pad.pad_14_4.label: H/D  CX
+Pad.pad_14_4.global_defaults: -592001
+
+Pad.pad_15_4.experiment: particles
+Pad.pad_15_4.x: dim_of(_sig14)
+Pad.pad_15_4.y: _sig17 =\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_17 ;|||_sig18=\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_18;|||_sig19=\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_19 ;|||_sig14=\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_14 ;|||_sig15=\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_15 ;|||_sig16=\PARTICLES::TOP.NPA.PCX:SCALER_2:CHANNEL_16 ;|||_sig = _sig17+_sig18+_sig19+_sig14+_sig15+_sig16;
+Pad.pad_15_4.event: npa_pcx2_done
+Pad.pad_15_4.title: "NPA 46-51"//$shot
+Pad.pad_15_4.label: NPA 46-51
+Pad.pad_15_4.global_defaults: -724097
+
+Pad.pad_16_4.step_plot: 1
+Pad.pad_16_4.experiment: spectroscopy
+Pad.pad_16_4.y: \spectroscopy::balmer_h_to_d
+Pad.pad_16_4.ymin: -.1
+Pad.pad_16_4.event: h_to_d_done
+Pad.pad_16_4.title: "H/D (Spect)"//$shot  
+Pad.pad_16_4.label: H/D Spect
+Pad.pad_16_4.global_defaults: 274807
+
+Pad.pad_17_4.step_plot: 1
+Pad.pad_17_4.experiment: spectroscopy
+Pad.pad_17_4.x: _t = dim_Of(\spectroscopy::balmer_h_to_d)
+Pad.pad_17_4.y: _x = \spectroscopy::balmer_h_to_d,|||_x/(_x+1.)
+Pad.pad_17_4.ymin: -.01
+Pad.pad_17_4.ymax: .2
+Pad.pad_17_4.event: h_to_d_done
+Pad.pad_17_4.title: "H/(H+D) (Spect)"//$shot  
+Pad.pad_17_4.label: H/(H+D) Spect
+Pad.pad_17_4.global_defaults: 274807
+
+Pad.pad_18_4.step_plot: 1
+Pad.pad_18_4.experiment: spectroscopy
+Pad.pad_18_4.x: _t = dim_Of(\spectroscopy::balmer_h_to_d)
+Pad.pad_18_4.y: _x = \spectroscopy::balmer_h_to_d,|||_y = 1/_x|||_y/(_y+1.)
+Pad.pad_18_4.ymin: -.01
+Pad.pad_18_4.ymax: .2
+Pad.pad_18_4.event: h_to_d_done
+Pad.pad_18_4.title: "D/(H+D) (Spect)"//$shot  
+Pad.pad_18_4.label: D/(H+D) Spect
+Pad.pad_18_4.global_defaults: 274807
+
+Pad.pad_19_4.experiment: spectroscopy
+Pad.pad_19_4.y: (\SPECTROSCOPY::TOP.HALPH_DALPH.HARDWARE:HA_DA_A14:INPUT_2)
+Pad.pad_19_4.event: ha_da_a14_done
+Pad.pad_19_4.title: "H-D alpha raw signal"//$shot
+Pad.pad_19_4.label: HaDa raw
+Pad.pad_19_4.global_defaults: -723081
+
+
+Pad.pad_21_4.experiment: electrons
+Pad.pad_21_4.y: _dens = \top.tci.results.inversion:ne0_efit/1.e20
+Pad.pad_21_4.ymin: -.2
+Pad.pad_21_4.ymax: 2
+Pad.pad_21_4.event: tci_invert
+Pad.pad_21_4.title: "ne0  (10^20)"//$shot
+Pad.pad_21_4.label: ne0 TCI (20)
+Pad.pad_21_4.global_defaults: -773249
+
+Pad.pad_22_4.experiment: cmod,electrons,mhd,magnetics,analysis
+Pad.pad_22_4.x: _t
+Pad.pad_22_4.y: _ip=-\ANALYSIS::EFIT_AEQDSK:CPASMA/1.e6,|||_tefit=dim_of(_ip),|||_chord = build_signal(.01*\analysis::efit_aeqdsk:rco2v[3,*],*,_tefit),|||_dens = \electrons::top.tci.results:nl_04,||||||_t = 0.1 + .001*(0:1900),|||_c = MdsMisc->Resample:dsc(xd(_chord),xd(_t)),|||_d = MdsMisc->Resample:dsc(xd(_dens),xd(_t))/1.e20,|||_d=_d/_c,
+Pad.pad_22_4.xmin: -.50
+Pad.pad_22_4.xmax: 2
+Pad.pad_22_4.event: tci_invert
+Pad.pad_22_4.title: "nebar04 TCI"//$shot
+Pad.pad_22_4.label: nebar04 TCI
+Pad.pad_22_4.global_defaults: -261257
+
+Pad.pad_23_4.experiment: electrons
+Pad.pad_23_4.y: _dens = \top.tci.results:nl_04/1.e20
+Pad.pad_23_4.ymin: -.2
+Pad.pad_23_4.event: tci_write
+Pad.pad_23_4.title: "Line Integral Density"//$shot
+Pad.pad_23_4.label: nl 04
+Pad.pad_23_4.global_defaults: -249473
+
+Pad.pad_24_4.y.grid_lines: 2
+Pad.pad_24_4.experiment: analysis
+Pad.pad_24_4.y: _dat=\ANALYSIS::EFIT_AEQDSK:DCO2V, _DAT[*,6]/1.e14
+Pad.pad_24_4.event: efit_done
+Pad.pad_24_4.title: "nebar_07"//$shot
+Pad.pad_24_4.label: nebar_07
+Pad.pad_24_4.global_defaults: -723137
+
+Pad.pad_25_4.experiment: cmod,electrons,mhd,magnetics,analysis
+Pad.pad_25_4.x: _t
+Pad.pad_25_4.y: _a=\analysis::efit_aeqdsk:aout/100.; |||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA/1.e6),|||_tefit=dim_of(_ip),|||_chord = build_signal(.01*\analysis::efit_aeqdsk:rco2v[3,*],*,_tefit),|||_dens = \electrons::top.tci.results:nl_04,||||||_t = 0.1 + .001*(0:1900),|||_c = MdsMisc->Resample:dsc(xd(_chord),xd(_t)),|||_d = MdsMisc->Resample:dsc(xd(_dens),xd(_t))/1.e20,|||_d=_d/_c,|||_a = MdsMisc->Resample:dsc(xd(_a),xd(_t)),|||_ip = MdsMisc->Resample:dsc(xd(_ip),xd(_t)),||||||_ng = _d*(3.14159*_a*_a)/_ip
+Pad.pad_25_4.xmin: -.50
+Pad.pad_25_4.xmax: 2
+Pad.pad_25_4.event: tci_invert
+Pad.pad_25_4.title: "n/nlimit"//$shot
+Pad.pad_25_4.label: n/nlimit
+Pad.pad_25_4.global_defaults: -785545
+
+Pad.pad_26_4.experiment: cmod,mhd,analysis,rf
+Pad.pad_26_4.x: _t
+Pad.pad_26_4.y: _t = dim_of(\analysis::efit_ssibry),|||_q95=\ANALYSIS::EFIT_AEQDSK:QPSIB,|||_dns=\ANALYSIS::EFIT_AEQDSK:DCO2V, |||_dens=_dns[*,6]/1.e14,|||_nq = _q95*_dens
+Pad.pad_26_4.ymin: -.001
+Pad.pad_26_4.ymax: 5
+Pad.pad_26_4.event: efit_done
+Pad.pad_26_4.title: "nq"//$shot
+Pad.pad_26_4.label: nq
+Pad.pad_26_4.global_defaults: -773761
+
+Pad.pad_27_4.experiment: electrons
+Pad.pad_27_4.y: _dens = \top.tci.results:nl_04/.65e20
+Pad.pad_27_4.ymin: -.2
+Pad.pad_27_4.event: tci_write
+Pad.pad_27_4.title: "Line Average Density"//$shot
+Pad.pad_27_4.label: nav
+Pad.pad_27_4.global_defaults: -773761
+
+Pad.pad_28_4.experiment: cmod,mhd,analysis,electrons
+Pad.pad_28_4.x: _tt
+Pad.pad_28_4.y: _tt = dim_of(\analysis::efit_aeqdsk:aout) ,|||_chord = .01*\analysis::efit_aeqdsk:rco2v[0,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_01,|||_td = dim_of(\electrons::top.tci.results:nl_01),|||_dens = smooth1d(_dns,4),|||_dens = MdsMisc->Resample:dsc(xd(_dens),xd(_tt)),|||_dens=_dens/_chord,|||_d0=0.85e-20*\electrons::thom_midpln:ne_t,|||_d0 = MdsMisc->Resample:dsc(xd(_d0),xd(_tt)),|||_d0/_dens
+Pad.pad_28_4.event: efit_done
+Pad.pad_28_4.title: "ne0/nel"//$shot
+Pad.pad_28_4.label: ne0/nel
+Pad.pad_28_4.global_defaults: -773761
+
+Pad.pad_29_4.experiment: magnetics
+Pad.pad_29_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP01_ghk
+Pad.pad_29_4.title: "Fast Magnetics BP01 GHK"
+Pad.pad_29_4.label: bp01_ghk fast
+Pad.pad_29_4.global_defaults: -592001
+
+Pad.pad_30_4.experiment: magnetics
+Pad.pad_30_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP08_GHK
+Pad.pad_30_4.title: "Fast Magnetics BP08 GHK"
+Pad.pad_30_4.label: bp08_ghk fast
+Pad.pad_30_4.global_defaults: -592001
+
+Pad.pad_31_4.experiment: magnetics
+Pad.pad_31_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP15_GHK
+Pad.pad_31_4.title: "Fast Magnetics BP15 GHK"
+Pad.pad_31_4.label: bp15_ghk fast
+Pad.pad_31_4.global_defaults: -592001
+
+Pad.pad_32_4.experiment: magnetics
+Pad.pad_32_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP1T_ABK
+Pad.pad_32_4.title: "Fast Magnetics BP1T ABK"
+Pad.pad_32_4.label: bp1t_abk fast
+Pad.pad_32_4.global_defaults: -592001
+
+Pad.pad_33_4.experiment: magnetics
+Pad.pad_33_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP1T_ghk
+Pad.pad_33_4.title: "Fast Magnetics BP1T_ghk"
+Pad.pad_33_4.label: bp1t_ghk fast
+Pad.pad_33_4.global_defaults: -592001
+
+Pad.pad_34_4.experiment: magnetics
+Pad.pad_34_4.y: \MAGNETICS::top.ACTIVE_MHD.SIGNALS:BP2T_ghk
+Pad.pad_34_4.title: "Fast Magnetics BP2T_ghk"
+Pad.pad_34_4.label: bp2t_ghk fast
+Pad.pad_34_4.global_defaults: -592001
+
+Pad.pad_1_5.step_plot: 1
+Pad.pad_1_5.experiment: spectroscopy
+Pad.pad_1_5.y: \spectroscopy::z_ave
+Pad.pad_1_5.ymin: 0
+Pad.pad_1_5.ymax: 3
+Pad.pad_1_5.event: Zeff_done
+Pad.pad_1_5.title: "Zeff"//$shot  
+Pad.pad_1_5.label: Zeff
+Pad.pad_1_5.global_defaults: 274807
+
+Pad.pad_2_5.step_plot: 1
+Pad.pad_2_5.experiment: spectroscopy
+Pad.pad_2_5.y: \spectroscopy::z_67
+Pad.pad_2_5.ymin: 0
+Pad.pad_2_5.ymax: 3
+Pad.pad_2_5.event: Zeff_67_done
+Pad.pad_2_5.title: "Zeff - 67"//$shot  
+Pad.pad_2_5.label: Zeff - 67
+Pad.pad_2_5.global_defaults: 274807
+
+Pad.pad_3_5.step_plot: 1
+Pad.pad_3_5.experiment: spectroscopy
+Pad.pad_3_5.y: \spectroscopy::z_67_yag
+Pad.pad_3_5.ymin: 0
+Pad.pad_3_5.ymax: 3
+Pad.pad_3_5.event: Zeff_67_yag_done
+Pad.pad_3_5.title: "Zeff - 67 (YAG)"//$shot  
+Pad.pad_3_5.label: Zeff - 67 - yag
+Pad.pad_3_5.global_defaults: 274807
+
+Pad.pad_4_5.step_plot: 1
+Pad.pad_4_5.experiment: spectroscopy
+Pad.pad_4_5.y: \spectroscopy::z_bright
+Pad.pad_4_5.event: Z_a14_1_done
+Pad.pad_4_5.title: "Z Brightness"//$shot  
+Pad.pad_4_5.label: Z Bright
+Pad.pad_4_5.global_defaults: 799095
+
+Pad.pad_5_5.experiment: spectroscopy
+Pad.pad_5_5.y: _r = .7,_z=1.5, \nrootz[*,_r]/1.e20/sqrt(_z)
+Pad.pad_5_5.event: nrootz_done
+Pad.pad_5_5.title: "nrootz R="//trim(adjustl(_r))//$shot
+Pad.pad_5_5.label: nrootz vs t
+Pad.pad_5_5.global_defaults: -773761
+
+Pad.pad_6_5.experiment: spectroscopy
+Pad.pad_6_5.y: 1000.*\spectroscopy::top.dalsa.analysis:ped_hwidth|||
+Pad.pad_6_5.ymin: 0
+Pad.pad_6_5.ymax: 10
+Pad.pad_6_5.event: dalsa_ped_done
+Pad.pad_6_5.title: "VB width"//$shot
+Pad.pad_6_5.label: VB Width
+Pad.pad_6_5.global_defaults: -773761
+
+Pad.pad_7_5.step_plot: 1
+Pad.pad_7_5.experiment: spectroscopy
+Pad.pad_7_5.y: \spectroscopy::z_70_yag
+Pad.pad_7_5.ymin: 0
+Pad.pad_7_5.ymax: 3
+Pad.pad_7_5.event: Zeff_70_yag_done
+Pad.pad_7_5.title: "Zeff - 70 (YAG)"//$shot  
+Pad.pad_7_5.label: Zeff - 70 - yag
+Pad.pad_7_5.global_defaults: 274807
+
+
+
+
+
+Pad.pad_12_5.experiment: spectroscopy
+Pad.pad_12_5.y: \top.vuv.moly_mon.analysis:mo_conc_c2
+Pad.pad_12_5.ymin: -.001
+Pad.pad_12_5.event: moly_anal
+Pad.pad_12_5.title: "Mo Conc"//$shot
+Pad.pad_12_5.label: Moly Conc
+Pad.pad_12_5.global_defaults: -773769
+
+Pad.pad_13_5.experiment: spectroscopy
+Pad.pad_13_5.y: \top.vuv.moly_mon.analysis:ch_2
+Pad.pad_13_5.event: moly_anal
+Pad.pad_13_5.title: \top.vuv.moly_mon.analysis:ch_2_label//$shot
+Pad.pad_13_5.label: Moly Mon
+Pad.pad_13_5.global_defaults: -249481
+
+
+Pad.pad_15_5.experiment: spectroscopy
+Pad.pad_15_5.x: dim_of(\spectroscopy::top.h0.c_top_array:halpha_dig2:input_16)
+Pad.pad_15_5.y: \spectroscopy::top.h0.c_top_array:halpha_dig2:input_16+.566 
+Pad.pad_15_5.event: ctop_complete2
+Pad.pad_15_5.title: "CII C-Port" //$shot 
+Pad.pad_15_5.label: CII C-port
+Pad.pad_15_5.global_defaults: 323967
+
+Pad.pad_16_5.experiment: spectroscopy
+Pad.pad_16_5.y: \OI_SIG
+Pad.pad_16_5.event: spectroscopy_trcf
+Pad.pad_16_5.title: "OI" //$shot 
+Pad.pad_16_5.label: OI
+Pad.pad_16_5.global_defaults: 323967
+
+
+Pad.pad_18_5.experiment: spectroscopy
+Pad.pad_18_5.y: \spectroscopy::top.uvis.edge_fluct:diode_1
+Pad.pad_18_5.title: "Halpha"//$shot
+Pad.pad_18_5.label: Fast Tan Ha
+Pad.pad_18_5.global_defaults: -1035402
+
+Pad.pad_19_5.experiment: spectroscopy
+Pad.pad_19_5.y: .008-\spectroscopy::top.jhu_div_per:jhu_aurora:input_6
+Pad.pad_19_5.event: ctop_complete2
+Pad.pad_19_5.title: "McPherson H alpha" //$shot 
+Pad.pad_19_5.label: McPH Ha 
+Pad.pad_19_5.global_defaults: 323967
+
+Pad.pad_20_5.experiment: spectroscopy
+Pad.pad_20_5.y: \ha_1_bright
+Pad.pad_20_5.event: Z_a14_1_done
+Pad.pad_20_5.title: "H alpha 1" //$shot 
+Pad.pad_20_5.label: Ha - 1
+Pad.pad_20_5.global_defaults: 323967
+
+Pad.pad_21_5.experiment: spectroscopy
+Pad.pad_21_5.y: \ha_2_bright
+Pad.pad_21_5.event: ctop_complete2
+Pad.pad_21_5.title: "H alpha 2" //$shot 
+Pad.pad_21_5.label: Ha - 2
+Pad.pad_21_5.global_defaults: 323967
+
+Pad.pad_22_5.experiment: spectroscopy
+Pad.pad_22_5.default_node: \spectroscopy::top.uvis:ctop
+Pad.pad_22_5.x: dim_of(cal_sig)
+Pad.pad_22_5.y: sum(cal_sig,1)
+Pad.pad_22_5.event: ctop_complete
+Pad.pad_22_5.title: "Total H alpha div" //$shot 
+Pad.pad_22_5.label: H alpha div total
+Pad.pad_22_5.global_defaults: 323967
+
+Pad.pad_23_5.experiment: spectroscopy
+Pad.pad_23_5.x: dim_of(\spectroscopy::top.h0.c_top_array:halpha_dig1:input_09)
+Pad.pad_23_5.y: \spectroscopy::top.h0.c_top_array:halpha_dig1:input_09+.566 
+Pad.pad_23_5.event: ctop_complete
+Pad.pad_23_5.title: "H alpha div" //$shot 
+Pad.pad_23_5.label: H alpha div
+Pad.pad_23_5.global_defaults: 323967
+
+Pad.pad_24_5.experiment: spectroscopy
+Pad.pad_24_5.y: \spectroscopy::top.H0.c_top_array.c_top_fast:ch_06|||
+Pad.pad_24_5.title: 'Halpha - C Top'//$shot
+Pad.pad_24_5.label: Ha Fast
+Pad.pad_24_5.global_defaults: 256
+
+Pad.pad_25_5.experiment: spectroscopy
+Pad.pad_25_5.y: \SPECTROSCOPY::TOP.VUV.VIS_SIGNALS:MCP_VIS_SIG1
+Pad.pad_25_5.event: ctop_complete2
+Pad.pad_25_5.title: "H alpha Midplane" //$shot 
+Pad.pad_25_5.label: Ha Midplane
+Pad.pad_25_5.global_defaults: 323967
+
+
+
+Pad.pad_28_5.show_mode: 2
+Pad.pad_28_5.experiment: electrons
+Pad.pad_28_5.x: _t
+Pad.pad_28_5.y: _ts_ne = \thom_midpln:ne_t/1.e20,|||_t = dim_of(_ts_ne),|||_dens = \top.tci.results:nl_04/.6e20,|||_tci_ne = MdsMisc->Resample:dsc(xd(_dens),xd(_t)),|||_ts_ne/_tci_ne
+Pad.pad_28_5.ymin: -.1
+Pad.pad_28_5.ymax: 3
+Pad.pad_28_5.event: yag_new_ready
+Pad.pad_28_5.title: "ne0/nebar"//$shot
+Pad.pad_28_5.label: ne0/nebar
+Pad.pad_28_5.global_defaults: -773769
+
+
+
+Pad.pad_31_5.experiment: electrons
+Pad.pad_31_5.default_node: \electrons::top.reflect.camac.signals
+Pad.pad_31_5.x: DIM_OF(flt_sin_60)
+Pad.pad_31_5.y: _A=SQRT((flt_sin_60)^2+(flt_cos_60)^2)
+Pad.pad_31_5.ymin: 0
+Pad.pad_31_5.ymax: 2.0
+Pad.pad_31_5.title: "60 GHZ AMP-FLT"//$SHOT
+Pad.pad_31_5.label: Ref 60 amp fast
+Pad.pad_31_5.global_defaults: -642689
+
+Pad.pad_32_5.experiment: electrons
+Pad.pad_32_5.default_node: \electrons::top.reflect.camac.signals
+Pad.pad_32_5.x: DIM_OF(flt_sin_75)
+Pad.pad_32_5.y: _A=SQRT((flt_sin_75)^2+(flt_cos_75)^2)
+Pad.pad_32_5.ymin: 0
+Pad.pad_32_5.ymax: 2
+Pad.pad_32_5.title: "75 GHZ AMP-FLT"//$SHOT
+Pad.pad_32_5.label: Ref 75 amp fast
+Pad.pad_32_5.global_defaults: -642689
+
+Pad.pad_33_5.experiment: electrons
+Pad.pad_33_5.default_node: \electrons::top.reflect.camac.signals
+Pad.pad_33_5.x: DIM_OF(ref_sin_110)
+Pad.pad_33_5.y: _A=SQRT((ref_sin_110)^2+(ref_cos_110)^2)
+Pad.pad_33_5.ymin: 0
+Pad.pad_33_5.ymax: 2.5
+Pad.pad_33_5.title: "110 GHZ AMP"//$SHOT
+Pad.pad_33_5.label: Reflect 110 Amp
+Pad.pad_33_5.global_defaults: -642689
+
+Pad.pad_34_5.experiment: electrons
+Pad.pad_34_5.default_node: \electrons::top.reflect.camac.signals
+Pad.pad_34_5.x: DIM_OF(flt_sin_110)
+Pad.pad_34_5.y: _A=SQRT((flt_sin_110)^2+(flt_cos_110)^2)
+Pad.pad_34_5.ymin: 0
+Pad.pad_34_5.ymax: 2
+Pad.pad_34_5.title: "110 GHZ AMP-FLT"//$SHOT
+Pad.pad_34_5.label: Ref 110 amp fast
+Pad.pad_34_5.global_defaults: -642689
+
+
+Pad.pad_2_6.experiment: xtomo
+Pad.pad_2_6.default_node: \xtomo_signals.array_3
+Pad.pad_2_6.y: chord_19*1.e6
+Pad.pad_2_6.event: xtomo_traq_2
+Pad.pad_2_6.title: "Soft X-ray diode (uA)"//$shot
+Pad.pad_2_6.label: S Xray 3 #19
+Pad.pad_2_6.global_defaults: -723594
+
+Pad.pad_3_6.experiment: xtomo
+Pad.pad_3_6.default_node: \xtomo_signals.array_3
+Pad.pad_3_6.y: chord_05*1.e6
+Pad.pad_3_6.event: xtomo_traq_2
+Pad.pad_3_6.title: "Soft X-ray diode (uA) Chan 5"//$shot
+Pad.pad_3_6.label: S Xray 3 #5
+Pad.pad_3_6.global_defaults: -723594
+
+Pad.pad_4_6.experiment: xtomo
+Pad.pad_4_6.y: \XTOMO::TOP.EDGE_EMISS_2:PEDESTAL:WIDTH*2000
+Pad.pad_4_6.ymin: -.5
+Pad.pad_4_6.ymax: 10.5
+Pad.pad_4_6.event: edge_xray_2_pedestal_done
+Pad.pad_4_6.title: "Xray2 Ped Width"//$shot
+Pad.pad_4_6.label: Xray2 Ped Width
+Pad.pad_4_6.global_defaults: -772225
+
+Pad.pad_5_6.experiment: xtomo
+Pad.pad_5_6.y: \XTOMO::TOP.EDGE_EMISS_2:PEDESTAL:position
+Pad.pad_5_6.ymin: .87
+Pad.pad_5_6.ymax: .91
+Pad.pad_5_6.event: edge_xray_2_pedestal_done
+Pad.pad_5_6.title: "Xray2 Ped Position"//$shot
+Pad.pad_5_6.label: Xray2 Ped Pos
+Pad.pad_5_6.global_defaults: -772225
+
+Pad.pad_6_6.experiment: xtomo
+Pad.pad_6_6.y: \XTOMO::TOP.EDGE_EMISS_2:PEDESTAL:height*2
+Pad.pad_6_6.ymin: -.5
+Pad.pad_6_6.event: edge_xray_2_pedestal_done
+Pad.pad_6_6.title: "Xray2 Ped Height"//$shot
+Pad.pad_6_6.label: Xray2 Ped Height
+Pad.pad_6_6.global_defaults: -772225
+
+Pad.pad_7_6.experiment: xtomo
+Pad.pad_7_6.y: \XTOMO::TOP.EDGE_EMISS_4:PEDESTAL:WIDTH*2000
+Pad.pad_7_6.ymin: -.5
+Pad.pad_7_6.ymax: 10.5
+Pad.pad_7_6.event: edge_xray_4_pedestal_done
+Pad.pad_7_6.title: "Xray4 Ped Width"//$shot
+Pad.pad_7_6.label: Xray4 Ped Width
+Pad.pad_7_6.global_defaults: -772225
+
+Pad.pad_8_6.experiment: xtomo
+Pad.pad_8_6.y: \XTOMO::TOP.EDGE_EMISS_4:PEDESTAL:Position
+Pad.pad_8_6.ymin: .87
+Pad.pad_8_6.ymax: .91
+Pad.pad_8_6.event: edge_xray_4_pedestal_done
+Pad.pad_8_6.title: "Xray4 Ped Position"//$shot
+Pad.pad_8_6.label: Xray4 Ped Pos
+Pad.pad_8_6.global_defaults: -772225
+
+Pad.pad_9_6.experiment: xtomo
+Pad.pad_9_6.y: \XTOMO::TOP.EDGE_EMISS_4:PEDESTAL:height*2
+Pad.pad_9_6.ymin: -.5
+Pad.pad_9_6.event: edge_xray_4_pedestal_done
+Pad.pad_9_6.title: "Xray4 Ped Height"//$shot
+Pad.pad_9_6.label: Xray4 Ped Height
+Pad.pad_9_6.global_defaults: -772225
+
+
+
+Pad.pad_12_6.show_mode: 1
+Pad.pad_12_6.experiment: analysis
+Pad.pad_12_6.y: \analysis::top:xray:st_radius
+Pad.pad_12_6.ymin: 0
+Pad.pad_12_6.ymax: .1
+Pad.pad_12_6.event: xcentroid
+Pad.pad_12_6.title: "ST Inversion radius"//$shot
+Pad.pad_12_6.label: ST Inv. rad.
+Pad.pad_12_6.global_defaults: -247945
+
+Pad.pad_13_6.show_mode: 1
+Pad.pad_13_6.experiment: analysis
+Pad.pad_13_6.y: \analysis::top:xray:st_period
+Pad.pad_13_6.ymin: 0
+Pad.pad_13_6.ymax: .01
+Pad.pad_13_6.event: xcentroid
+Pad.pad_13_6.title: "Sawtooth Period"//$shot
+Pad.pad_13_6.label: ST Period
+Pad.pad_13_6.global_defaults: -247945
+
+Pad.pad_14_6.experiment: analysis
+Pad.pad_14_6.y: \analysis::top:xray:rcentroid - .66
+Pad.pad_14_6.ymin: -.1
+Pad.pad_14_6.ymax: .1
+Pad.pad_14_6.event: xcentroid
+Pad.pad_14_6.title: "Xray R Centroid"//$shot
+Pad.pad_14_6.label: R - Xray
+Pad.pad_14_6.global_defaults: -772225
+
+Pad.pad_15_6.experiment: analysis
+Pad.pad_15_6.y: \analysis::top:xray:zcentroid
+Pad.pad_15_6.ymin: -.1
+Pad.pad_15_6.ymax: .1
+Pad.pad_15_6.event: xcentroid
+Pad.pad_15_6.title: "Xray Z Centroid"//$shot
+Pad.pad_15_6.label: Z - Xray
+Pad.pad_15_6.global_defaults: -772225
+
+
+
+Pad.pad_18_6.experiment: edge
+Pad.pad_18_6.y: \edge::top.probes.asp:plunge
+Pad.pad_18_6.event: probes_aport_aurora14_03
+Pad.pad_18_6.title: "ASP Position"//$shot
+Pad.pad_18_6.label: ASP position
+Pad.pad_18_6.global_defaults: -723073
+
+
+
+
+Pad.pad_22_6.experiment: spectroscopy
+Pad.pad_22_6.y: \spectroscopy::hards_diode
+Pad.pad_22_6.event: spectroscopy_trcf
+Pad.pad_22_6.title: "(BGO Hard X-rays; F Tangential)"
+Pad.pad_22_6.label: Hard Xray
+Pad.pad_22_6.global_defaults: 275319
+
+Pad.pad_23_6.experiment: spectroscopy
+Pad.pad_23_6.y: \spectroscopy::hards_rate
+Pad.pad_23_6.event: spectroscopy_trcf
+Pad.pad_23_6.title: "(BGO Hard X-ray Rate; F Tangential)"
+Pad.pad_23_6.label: Hard Xray Rate
+Pad.pad_23_6.global_defaults: 275319
+
+Pad.pad_24_6.experiment: spectroscopy
+Pad.pad_24_6.y: \spectroscopy::hards_diode
+Pad.pad_24_6.event: spectroscopy_trcf
+Pad.pad_24_6.title: "(BGO Hard X-rays; F Tangential)"
+Pad.pad_24_6.label: Hard Xray Amplified
+Pad.pad_24_6.global_defaults: 275319
+
+
+
+
+Pad.pad_28_6.experiment: RF
+Pad.pad_28_6.y: \RF::TOP.PCI:PCI_A14_1:INPUT_5
+Pad.pad_28_6.ymin: -.5
+Pad.pad_28_6.ymax: .5
+Pad.pad_28_6.event: PCI1_DONE
+Pad.pad_28_6.title: "OLD PCI Ch5"//$SHOT
+Pad.pad_28_6.label: old pci chan 5
+Pad.pad_28_6.global_defaults: -772225
+
+Pad.pad_29_6.experiment: rf
+Pad.pad_29_6.y: \rf::top.pci:pci_acq16_2:input_01
+Pad.pad_29_6.title: "PCI center"//$shot
+Pad.pad_29_6.label: PCI center
+Pad.pad_29_6.global_defaults: -592001
+
+
+Pad.pad_31_6.experiment: electrons
+Pad.pad_31_6.default_node: \electrons::top.reflect.camac.signals
+Pad.pad_31_6.x: DIM_OF(_A)
+Pad.pad_31_6.y: _A=flt_sin_60
+Pad.pad_31_6.ymin: -1.1
+Pad.pad_31_6.ymax: 1.1
+Pad.pad_31_6.title: "60 GHZ SIN-FLT"//$SHOT
+Pad.pad_31_6.label: Ref 60 sin fast
+Pad.pad_31_6.global_defaults: -642689
+
+Pad.pad_32_6.experiment: electrons
+Pad.pad_32_6.y: \top.reflect.camac.signals:flt_cos_88_u
+Pad.pad_32_6.ymin: -1.1
+Pad.pad_32_6.ymax: 1.1
+Pad.pad_32_6.title: "88 GHZ COS-FLT "//$SHOT
+Pad.pad_32_6.label: Ref 88 cos fast
+Pad.pad_32_6.global_defaults: -642689
+
+Pad.pad_33_6.experiment: electrons
+Pad.pad_33_6.y: \top.reflect.camac.signals:flt_cos_88_u
+Pad.pad_33_6.ymin: -1.1
+Pad.pad_33_6.ymax: 1.1
+Pad.pad_33_6.title: "88 GHZ COS-FLT "//$SHOT
+Pad.pad_33_6.label: Ref 88 cos fast
+Pad.pad_33_6.global_defaults: -642689
+
+Pad.pad_34_6.experiment: electrons
+Pad.pad_34_6.y: \top.reflect.camac.signals:flt_cos_110
+Pad.pad_34_6.ymin: -1.1
+Pad.pad_34_6.ymax: 1.1
+Pad.pad_34_6.title: "110 GHZ cos-FLT "//$SHOT
+Pad.pad_34_6.label: Ref 110 cos fast
+Pad.pad_34_6.global_defaults: -642689
+
+Pad.pad_1_7.show_mode: 2
+Pad.pad_1_7.experiment: transport
+Pad.pad_1_7.y: \transport::top.global.traces:p_icrf
+Pad.pad_1_7.title: "P ICRF    "//$shot
+Pad.pad_1_7.label: c_Picrf
+Pad.pad_1_7.global_defaults: 12544
+
+Pad.pad_2_7.show_mode: 2
+Pad.pad_2_7.experiment: transport
+Pad.pad_2_7.y: \transport::top.global.traces:p_total
+Pad.pad_2_7.title: "P Total    "//$shot
+Pad.pad_2_7.label: c_Ptotal
+Pad.pad_2_7.global_defaults: 12544
+
+Pad.pad_3_7.show_mode: 2
+Pad.pad_3_7.experiment: transport
+Pad.pad_3_7.default_node: \transport::top.global.traces
+Pad.pad_3_7.x: dim_of(p_total)
+Pad.pad_3_7.y: p_total-p_icrf
+Pad.pad_3_7.title: "P Ohmic    "//$shot
+Pad.pad_3_7.label: c_Pohmic
+Pad.pad_3_7.global_defaults: 12544
+
+Pad.pad_4_7.show_mode: 2
+Pad.pad_4_7.experiment: transport
+Pad.pad_4_7.y: \transport::top.global.traces:taue_kin
+Pad.pad_4_7.title: "TauE kin    "//$shot
+Pad.pad_4_7.label: c_TauE kin
+Pad.pad_4_7.global_defaults: 12544
+
+Pad.pad_5_7.show_mode: 2
+Pad.pad_5_7.experiment: transport
+Pad.pad_5_7.y: \transport::top.global.traces:taue_mhd
+Pad.pad_5_7.title: "TauE mhd   "//$shot
+Pad.pad_5_7.label: c_TauE mhd
+Pad.pad_5_7.global_defaults: 12544
+
+Pad.pad_6_7.show_mode: 2
+Pad.pad_6_7.experiment: transport
+Pad.pad_6_7.y: \transport::top.global.traces:w_mhd
+Pad.pad_6_7.title: "W mhd    "//$shot
+Pad.pad_6_7.label: c_Wmhd
+Pad.pad_6_7.global_defaults: 12544
+
+Pad.pad_7_7.show_mode: 2
+Pad.pad_7_7.experiment: transport
+Pad.pad_7_7.y: \transport::top.global.traces:w_kinetic
+Pad.pad_7_7.title: "W kinetic    "//$shot
+Pad.pad_7_7.label: c_Wkin
+Pad.pad_7_7.global_defaults: 12544
+
+Pad.pad_8_7.show_mode: 2
+Pad.pad_8_7.experiment: transport
+Pad.pad_8_7.y: \transport::top.global.traces:wi_kinetic
+Pad.pad_8_7.title: "Wi kinetic    "//$shot
+Pad.pad_8_7.label: c_Wi kin
+Pad.pad_8_7.global_defaults: 12544
+
+Pad.pad_9_7.show_mode: 2
+Pad.pad_9_7.experiment: transport
+Pad.pad_9_7.y: \transport::top.global.traces:we_kinetic
+Pad.pad_9_7.title: "We kinetic    "//$shot
+Pad.pad_9_7.label: c_We kin
+Pad.pad_9_7.global_defaults: 12544
+
+Pad.pad_10_7.show_mode: 2
+Pad.pad_10_7.experiment: transport
+Pad.pad_10_7.y: \transport::top.global.traces:v_resistive
+Pad.pad_10_7.title: "V res    "//$shot
+Pad.pad_10_7.label: c_Vres
+Pad.pad_10_7.global_defaults: 12544
+
+Pad.pad_11_7.show_mode: 2
+Pad.pad_11_7.experiment: transport
+Pad.pad_11_7.y: \transport::top.global.traces:v_axis
+Pad.pad_11_7.title: "V axis    "//$shot
+Pad.pad_11_7.label: c_Vo
+Pad.pad_11_7.global_defaults: 12544
+
+Pad.pad_12_7.show_mode: 2
+Pad.pad_12_7.experiment: transport
+Pad.pad_12_7.y: \transport::top.global.traces:v_inductive
+Pad.pad_12_7.title: "V ind   "//$shot
+Pad.pad_12_7.label: c_Vi
+Pad.pad_12_7.global_defaults: 12544
+
+Pad.pad_13_7.show_mode: 2
+Pad.pad_13_7.experiment: transport
+Pad.pad_13_7.y: \transport::top.global.traces:zeff
+Pad.pad_13_7.title: "Zeff   "//$shot
+Pad.pad_13_7.label: c_Zeff
+Pad.pad_13_7.global_defaults: 12544
+
+Pad.pad_14_7.show_mode: 2
+Pad.pad_14_7.experiment: transport
+Pad.pad_14_7.y: \transport::top.global.traces:zspitzer
+Pad.pad_14_7.title: "Z spitzer   "//$shot
+Pad.pad_14_7.label: c_Zspitzer
+Pad.pad_14_7.global_defaults: 12544
+
+
+Pad.pad_16_7.experiment: transport
+Pad.pad_16_7.y: \TRANSPORT::TOP.IMP_INJ:DT196:INPUT_06
+Pad.pad_16_7.event: imp_inj
+Pad.pad_16_7.title: "Qswitch Out"//$shot
+Pad.pad_16_7.label: LBO Q-Switch
+Pad.pad_16_7.global_defaults: -200321
+
+Pad.pad_17_7.experiment: transport
+Pad.pad_17_7.y: \TRANSPORT::TOP.IMP_INJ:DT196:INPUT_10
+Pad.pad_17_7.event: imp_inj
+Pad.pad_17_7.title: "Laser Monitor"//$shot
+Pad.pad_17_7.label: LBO Moniter
+Pad.pad_17_7.global_defaults: -724609
+
+Pad.pad_18_7.experiment: transport
+Pad.pad_18_7.y: \TRANSPORT::TOP.IMP_INJ:DT196:INPUT_13
+Pad.pad_18_7.event: imp_inj
+Pad.pad_18_7.title: "Ca Monitor"//$shot
+Pad.pad_18_7.label: Ca Moniter
+Pad.pad_18_7.global_defaults: -724609
+
+Pad.pad_19_7.experiment: spectroscopy
+Pad.pad_19_7.x: dim_of(data(\spectroscopy::top.hirex.camac:scaler:input_4))/1000.
+Pad.pad_19_7.y: deriv(data(\spectroscopy::top.hirex.camac:scaler:input_4))
+Pad.pad_19_7.event: hirexjr
+Pad.pad_19_7.title: "Hirex Jr "//$SHOT 
+Pad.pad_19_7.label: HirexJr
+Pad.pad_19_7.global_defaults: -261761
+
+
+Pad.pad_21_7.experiment: edge
+Pad.pad_21_7.y: \f_side_rat
+Pad.pad_21_7.event: gas_incaa_01
+Pad.pad_21_7.title: "mid pressure "//$shot
+Pad.pad_21_7.label: p0 - midplane
+Pad.pad_21_7.global_defaults: -724617
+
+Pad.pad_22_7.experiment: edge
+Pad.pad_22_7.y: \b_bot_rat
+Pad.pad_22_7.event: gas_incaa_01
+Pad.pad_22_7.title: "div pressure rat "//$shot
+Pad.pad_22_7.label: p0 - Div_rat
+Pad.pad_22_7.global_defaults: -724617
+
+Pad.pad_23_7.experiment: edge
+Pad.pad_23_7.y: \b_bot_mks
+Pad.pad_23_7.event: gas_incaa_01
+Pad.pad_23_7.title: "div pressure  mks"//$shot
+Pad.pad_23_7.label: p0 - Div - mks
+Pad.pad_23_7.global_defaults: -724617
+
+Pad.pad_24_7.experiment: edge
+Pad.pad_24_7.x: dim_of(\f_side_rat)
+Pad.pad_24_7.y: \b_bot_mks/\f_side_rat
+Pad.pad_24_7.ymin: -1
+Pad.pad_24_7.ymax: 300
+Pad.pad_24_7.event: gas_incaa_01
+Pad.pad_24_7.title: "div compression "//$shot
+Pad.pad_24_7.label: div compression
+Pad.pad_24_7.global_defaults: -773769
+
+Pad.pad_25_7.experiment: hybrid
+Pad.pad_25_7.default_node: \hybrid::top.signals.m_out
+Pad.pad_25_7.y: OUTPUT_14
+Pad.pad_25_7.event: CADF_09
+Pad.pad_25_7.title: "M Out 14  "// \HYBRID::HYB_OUTPUT_14 //$shot
+Pad.pad_25_7.label: M out 14
+Pad.pad_25_7.global_defaults: 1280
+
+Pad.pad_26_7.experiment: spectroscopy
+Pad.pad_26_7.y: \spectroscopy::top.x_ray_pha:incaa16:gas_b_bot
+Pad.pad_26_7.event: x_ray_pha_incaa16
+Pad.pad_26_7.title: "Gas Chopper" //$shot
+Pad.pad_26_7.label: Gas Chopper
+Pad.pad_26_7.global_defaults: 13568
+
+Pad.pad_27_7.experiment: spectroscopy
+Pad.pad_27_7.x: dim_of(\spectroscopy::top.x_ray_pha:incaa16:gas_b_bot)
+Pad.pad_27_7.y: smooth1d(\spectroscopy::top.x_ray_pha:incaa16:gas_b_bot,33)
+Pad.pad_27_7.event: x_ray_pha_incaa16
+Pad.pad_27_7.title: "Gas Chopper" //$shot
+Pad.pad_27_7.label: Gas Chop Smooth
+Pad.pad_27_7.global_defaults: 12544
+
+
+
+
+Pad.pad_31_7.experiment: fueling
+Pad.pad_31_7.default_node: \fueling::top.hpellet.camac
+Pad.pad_31_7.y: traq_1:t2860_01:input_3|||
+Pad.pad_31_7.title: "H-alpha"//$shot
+Pad.pad_31_7.label: Ha - pellet
+Pad.pad_31_7.global_defaults: -642697
+
+Pad.pad_32_7.show_mode: 1
+Pad.pad_32_7.experiment: fueling
+Pad.pad_32_7.x: dim_of(\tracker_r)
+Pad.pad_32_7.y: \tracker_r
+Pad.pad_32_7.event: tracker
+Pad.pad_32_7.title: 'R'//$shot
+Pad.pad_32_7.label: R - pellet
+Pad.pad_32_7.global_defaults: -724617
+
+Pad.pad_33_7.show_mode: 2
+Pad.pad_33_7.experiment: fueling
+Pad.pad_33_7.x: dim_of(\tracker_y)
+Pad.pad_33_7.y: \tracker_y
+Pad.pad_33_7.event: tracker
+Pad.pad_33_7.title: 'Y'//$shot
+Pad.pad_33_7.label: Y - pellet
+Pad.pad_33_7.global_defaults: -724617
+
+Pad.pad_34_7.show_mode: 2
+Pad.pad_34_7.experiment: fueling
+Pad.pad_34_7.x: dim_of(\tracker_z)
+Pad.pad_34_7.y: \tracker_Z
+Pad.pad_34_7.event: tracker
+Pad.pad_34_7.title: 'Z'//$shot
+Pad.pad_34_7.label: Z - pellet
+Pad.pad_34_7.global_defaults: -724617

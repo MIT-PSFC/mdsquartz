@@ -1,0 +1,213 @@
+Scope.geometry: 895x1009+1999+102
+Scope.title: TreeOpen("CMOD,mhd,engineering",$shot),"Plasma"//$shot//"    "//\cmod::top:time_of_shot
+Scope.icon_name: Plasma
+Scope.title_event: state_done
+Scope.print_file: SYS$LOGIN:DWSCOPE.PS
+Scope.print_event: 
+Scope.print_portrait: 1
+Scope.print_window_title: 1
+Scope.printer: P55
+Scope.font: -Adobe-Helvetica-Medium-R-Normal--12-120-75-75-P-67-ISO8859-1
+Scope.columns: 3
+Scope.global_1_1.shot: current_shot("cmod")
+Scope.global_1_1.xmin: -.1
+Scope.global_1_1.xmax: 2
+Scope.global_1_1.global_defaults: -12545
+Scope.rows_in_column_1: 7
+
+Scope.plot_1_1.height: 133
+Scope.plot_1_1.experiment: magnetics
+Scope.plot_1_1.y: abs(\magnetics::ip/1.e6)
+Scope.plot_1_1.event: mag_traq  
+Scope.plot_1_1.title: "Ip  (MA)  "//$shot
+Scope.plot_1_1.global_defaults: 12544
+
+Scope.plot_2_1.height: 134
+Scope.plot_2_1.experiment: magnetics
+Scope.plot_2_1.default_node: \magnetics::top
+Scope.plot_2_1.y: abs(\magnetics::BTOR)
+Scope.plot_2_1.event: MAG_TRAQ
+Scope.plot_2_1.title: "Bt (Diam)" // getdbi("shot")
+Scope.plot_2_1.label: BT
+Scope.plot_2_1.global_defaults: 12546
+
+Scope.plot_3_1.height: 133
+Scope.plot_3_1.experiment: analysis
+Scope.plot_3_1.y: \ANALYSIS::EFIT_AEQDSK:QPSIB
+Scope.plot_3_1.event: efit_done
+Scope.plot_3_1.title: "q_95"//$shot
+Scope.plot_3_1.label: q95
+Scope.plot_3_1.global_defaults: -723585
+
+Scope.plot_4_1.height: 134
+Scope.plot_4_1.show_mode: 2
+Scope.plot_4_1.experiment: analysis
+Scope.plot_4_1.default_node: \analysis::efit_aeqdsk
+Scope.plot_4_1.x: dim_of(rmagx)
+Scope.plot_4_1.y: rmagx-rout
+Scope.plot_4_1.event: efit_done
+Scope.plot_4_1.title: "Shafranov Shift (cm)"//$shot
+Scope.plot_4_1.label: Shafranov Shift
+Scope.plot_4_1.global_defaults: -773769
+
+Scope.plot_5_1.height: 133
+Scope.plot_5_1.experiment: cmod,mhd,analysis,rf
+Scope.plot_5_1.x: _t
+Scope.plot_5_1.y: _frf=0.8,_tt = dim_of(\analysis::efit_ssibry),|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_wmhd = 1.e-6*\analysis::efit_aeqdsk:wplasm,|||_prf = \rf::rf_power_net,|||_trf = dim_of(_prf),||||||_t = .1 + .001*(0:1900),|||_w = MdsMisc->Resample:dsc(xd(_wmhd),xd(_t)),|||_wmhd = make_signal(_w,*,_t),|||_dwdt = deriv(smooth1d(_wmhd,20)),|||_poh = MdsMisc->Resample:dsc(xd(_poh),xd(_t)),|||_prf = MdsMisc->Resample:dsc(xd(_prf),xd(_t)),|||_tau = _wmhd/(_poh+_frf*_prf-_dwdt)|||
+Scope.plot_5_1.ymin: -.01
+Scope.plot_5_1.ymax: .1
+Scope.plot_5_1.event: rf_power_done
+Scope.plot_5_1.title: "Tau MHD"//$shot
+Scope.plot_5_1.label: Tau MHD
+Scope.plot_5_1.global_defaults: -773761
+
+Scope.plot_6_1.height: 134
+Scope.plot_6_1.experiment: cmod,mhd,analysis,rf,electrons
+Scope.plot_6_1.x: _t
+Scope.plot_6_1.y: _tt = dim_of(\analysis::efit_ssibry),|||_rr = \analysis::efit_aeqdsk:rout/100.,|||_a = \analysis::efit_aeqdsk:aout/100.,|||_kappa = \analysis::efit_aeqdsk:eout,|||_bt = abs(\analysis::efit_aeqdsk:btaxv) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA)/1.e6,|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)*1.e6),|||_poh=make_signal(_ip*(_vsurf-_vi),*,_tt),||||||_prf = \rf::rf_power_net,|||_t = 0.1 + .001*(0:1900),||||||_rr=MdsMisc->Resample:dsc(XD(_rr),XD(_t)),|||_a=MdsMisc->Resample:dsc(XD(_a),XD(_t)),|||_kappa=MdsMisc->Resample:dsc(XD(_kappa),XD(_t)),|||_poh=MdsMisc->Resample:dsc(XD(_poh),XD(_t)),|||_bt=MdsMisc->Resample:dsc(XD(_bt),XD(_t)),|||_ip=MdsMisc->Resample:dsc(XD(_ip),XD(_t)),|||_prf=MdsMisc->Resample:dsc(XD(_prf),XD(_t)),||||||_ptot = _frf*_prf+_poh,|||_ptot = _ptot*(_ptot > 0) + 1.e9*(_ptot<0), ||||||_chord = .01*\analysis::efit_aeqdsk:rco2v[5,*],|||_dns = 1.e-20*\electrons::top.tci.results:nl_04,|||_td = dim_of(_dns),|||_dns = smooth1d(_dns,4)/.54,|||_dns = make_signal(_dns,*,_td),|||_dens = MdsMisc->Resample:dsc(xd(_dns),xd(_t)),|||_dens = _dens*(_dens > 0) + 0.01*(_dens > 0),||||||_tau98=.144*_dens^.41*2^.19*_ip^.93*_rr^1.39*_a^.58*_kappa^.78*_bt^.15/(_ptot^.69)
+Scope.plot_6_1.ymin: -.025
+Scope.plot_6_1.ymax: 0.12
+Scope.plot_6_1.event: rf_power_done
+Scope.plot_6_1.title: "Tau ITER98y2"//$shot
+Scope.plot_6_1.label: Tau ITER98y2
+Scope.plot_6_1.global_defaults: -773769
+
+Scope.plot_7_1.height: 136
+Scope.plot_7_1.experiment: cmod,analysis
+Scope.plot_7_1.x: _t
+Scope.plot_7_1.y: _taus=_tau98*(_tau98>1.e-3) + 1.e9*(_tau98< 1.e-3),_tau/_taus
+Scope.plot_7_1.ymin: -.1
+Scope.plot_7_1.ymax: 1.5
+Scope.plot_7_1.event: rf_power_done
+Scope.plot_7_1.title: "H ITER98y2"//$shot
+Scope.plot_7_1.label: H_98y2
+Scope.plot_7_1.global_defaults: -773761
+Scope.rows_in_column_2: 7
+
+Scope.plot_1_2.height: 133
+Scope.plot_1_2.experiment: electrons
+Scope.plot_1_2.y: _dens = \top.tci.results:nl_04/.6e20
+Scope.plot_1_2.ymin: -.2
+Scope.plot_1_2.event: tci_write
+Scope.plot_1_2.title: "Line Average Density"//$shot
+Scope.plot_1_2.label: nav
+Scope.plot_1_2.global_defaults: -773761
+
+Scope.plot_2_2.height: 134
+Scope.plot_2_2.show_mode: 2
+Scope.plot_2_2.experiment: electrons
+Scope.plot_2_2.y: \thom_midpln:ne_t/1.e20
+Scope.plot_2_2.event: yag_new_ready
+Scope.plot_2_2.title: "ne0 YAG"//$shot
+Scope.plot_2_2.label: ne0 YAG
+Scope.plot_2_2.global_defaults: -723593
+
+Scope.plot_3_2.height: 133
+Scope.plot_3_2.show_mode: 2
+Scope.plot_3_2.experiment: electrons
+Scope.plot_3_2.y: \thom_midpln:te_t
+Scope.plot_3_2.event: yag_new_ready
+Scope.plot_3_2.title: "Te0 YAG"//$shot
+Scope.plot_3_2.label: Te0 YAG
+Scope.plot_3_2.global_defaults: -723593
+
+Scope.plot_4_2.height: 134
+Scope.plot_4_2.experiment: electrons
+Scope.plot_4_2.y: \gpc_te2
+Scope.plot_4_2.event: aur1_done
+Scope.plot_4_2.title: "Te0  ECE (GPC) "//$shot 
+Scope.plot_4_2.label: Te0 ECE (GPC)
+Scope.plot_4_2.global_defaults: 323966
+
+Scope.plot_5_2.height: 133
+Scope.plot_5_2.experiment: xtomo
+Scope.plot_5_2.default_node: \xtomo_signals.array_3
+Scope.plot_5_2.y: chord_19*1.e6
+Scope.plot_5_2.event: dt196_048_done
+Scope.plot_5_2.title: "Soft X-ray diode (uA)"//$shot
+Scope.plot_5_2.label: Soft Xray 3 - #19
+Scope.plot_5_2.global_defaults: -199306
+
+Scope.plot_6_2.height: 134
+Scope.plot_6_2.experiment: xtomo
+Scope.plot_6_2.default_node: \xtomo_signals.array_3
+Scope.plot_6_2.y: chord_05*1.e6
+Scope.plot_6_2.event: dt196_048_done
+Scope.plot_6_2.title: "Soft X-ray diode (uA) Chan 5"//$shot
+Scope.plot_6_2.label: Soft Xray 3 - #19
+Scope.plot_6_2.global_defaults: -199306
+
+Scope.plot_7_2.height: 136
+Scope.plot_7_2.experiment: analysis
+Scope.plot_7_2.y: \ANALYSIS::EFIT_AEQDSK:wplasm/1.e6
+Scope.plot_7_2.event: efit_done
+Scope.plot_7_2.title: "Wmhd"//$shot
+Scope.plot_7_2.label: Wmhd
+Scope.plot_7_2.global_defaults: -773769
+Scope.rows_in_column_3: 7
+
+Scope.plot_1_3.height: 133
+Scope.plot_1_3.experiment: spectroscopy
+Scope.plot_1_3.y: \ha_2_bright
+Scope.plot_1_3.event: ctop_complete2
+Scope.plot_1_3.title: "H alpha 2" //$shot 
+Scope.plot_1_3.label: Ha - 2
+Scope.plot_1_3.global_defaults: 323967
+
+Scope.plot_2_3.height: 134
+Scope.plot_2_3.step_plot: 1
+Scope.plot_2_3.experiment: spectroscopy
+Scope.plot_2_3.y: \spectroscopy::top.bolometer.results.foil:main_power /1.e6
+Scope.plot_2_3.ymin: -.1
+Scope.plot_2_3.event: pradm_done
+Scope.plot_2_3.title: "Bolometer"//$shot  
+Scope.plot_2_3.label: Prad Bolo Main
+Scope.plot_2_3.global_defaults: 274807
+
+Scope.plot_3_3.height: 133
+Scope.plot_3_3.step_plot: 1
+Scope.plot_3_3.experiment: spectroscopy
+Scope.plot_3_3.y: \top.bolometer.results.diode:prad_axuv
+Scope.plot_3_3.event: raw_axuv_edge_2_done
+Scope.plot_3_3.title: "Prad AXUV"//$shot  
+Scope.plot_3_3.label: Prad AXUV
+Scope.plot_3_3.global_defaults: 274807
+
+Scope.plot_4_3.height: 134
+Scope.plot_4_3.experiment: electrons
+Scope.plot_4_3.y: \gpc_te8
+Scope.plot_4_3.event: aur1_done
+Scope.plot_4_3.title: "Te8  ECE (GPC) "//$shot 
+Scope.plot_4_3.label: Te0 ECE (GPC)
+Scope.plot_4_3.global_defaults: 323966
+
+Scope.plot_5_3.height: 133
+Scope.plot_5_3.experiment: analysis
+Scope.plot_5_3.default_node: \analysis::efit
+Scope.plot_5_3.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Scope.plot_5_3.y: _vsurf =  deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi ;|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA);|||_li = \analysis::efit_aeqdsk:ali;|||_L = _li*6.28*67.*1.e-9;|||_vi = _L*deriv(smooth1d(_ip,2));|||_poh=_ip*(_vsurf-_vi)/1.e6
+Scope.plot_5_3.ymin: -.5
+Scope.plot_5_3.ymax: 2
+Scope.plot_5_3.event: efit_done
+Scope.plot_5_3.title: "Poh (MW)"//$shot
+Scope.plot_5_3.label: Poh
+Scope.plot_5_3.global_defaults: -773761
+
+Scope.plot_6_3.height: 134
+Scope.plot_6_3.experiment: cmod,mhd,analysis,rf
+Scope.plot_6_3.x: _trf
+Scope.plot_6_3.y: _tt = dim_of(\analysis::efit_AEQDSK:CPASMA) ,|||_vsurf = deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi,|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA),|||_li = \analysis::efit_aeqdsk:ali,|||_L = _li*6.28*67.*1.e-9,|||_vi = _L*deriv(smooth1d(_ip,2)),|||_poh=make_signal(1.e-6*_ip*(_vsurf-_vi),*,_tt),|||_trf = dim_of(\rf::rf_power_net),|||_prf = \rf::rf_power_net,|||||||||_poh2 = MdsMisc->Resample:dsc(xd(_poh),xd(_trf)),|||_ptot = _frf*_prf+_poh2
+Scope.plot_6_3.event: rf_power_done
+Scope.plot_6_3.title: "P total (MW)"//$shot
+Scope.plot_6_3.label: Ptot
+Scope.plot_6_3.global_defaults: -773769
+
+Scope.plot_7_3.height: 136
+Scope.plot_7_3.experiment: rf
+Scope.plot_7_3.y: \rf::rf_power_net
+Scope.plot_7_3.event: rf_power_done
+Scope.plot_7_3.title: "Net forward power::"//$shot
+Scope.plot_7_3.label: P RF
+Scope.plot_7_3.global_defaults: -723585
+Scope.vpane_1: 333
+Scope.vpane_2: 666

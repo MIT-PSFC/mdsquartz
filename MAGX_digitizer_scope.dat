@@ -1,0 +1,80 @@
+Scope.geometry: 600x997+822+80
+Scope.title: "Digitizer scope"
+Scope.icon_name: "Digitizer"
+Scope.title_event: MAGX_done
+Scope.print_file: dwscope.ps
+Scope.print_event: 
+Scope.print_portrait: 0
+Scope.print_window_title: 0
+Scope.printer: lp
+Scope.font: -Adobe-New Century Schoolbook-Medium-R-Normal--12-120-75-75-P-70-ISO8859-1
+Scope.columns: 1
+Scope.global_1_1.experiment: magx
+Scope.global_1_1.shot: current_shot("MAGX")
+Scope.global_1_1.event: MAGX_done
+Scope.global_1_1.global_defaults: -143745
+Scope.rows_in_column_1: 8
+
+Scope.plot_1_1.height: 112
+Scope.plot_1_1.experiment: magx
+Scope.plot_1_1.default_node: \top.digitizers:acq196_01
+Scope.plot_1_1.y: input_01
+Scope.plot_1_1.event: MAGX_done
+Scope.plot_1_1.title: "ACQ196_01:input_01"//$shot
+Scope.plot_1_1.global_defaults: -199297
+
+Scope.plot_2_1.height: 112
+Scope.plot_2_1.experiment: magx
+Scope.plot_2_1.default_node: \top.digitizers:acq196_01
+Scope.plot_2_1.y: input_02
+Scope.plot_2_1.event: MAGX_done
+Scope.plot_2_1.title: "ACQ196_01:input_02"//$shot
+Scope.plot_2_1.global_defaults: -199297
+
+Scope.plot_3_1.height: 112
+Scope.plot_3_1.experiment: magx
+Scope.plot_3_1.default_node: \top.digitizers:acq196_01
+Scope.plot_3_1.y: input_03
+Scope.plot_3_1.event: MAGX_done
+Scope.plot_3_1.title: "ACQ196_01:input_03"//$shot
+Scope.plot_3_1.global_defaults: -199297
+
+Scope.plot_4_1.height: 112
+Scope.plot_4_1.experiment: magx
+Scope.plot_4_1.default_node: \top.digitizers:acq196_01
+Scope.plot_4_1.y: input_04
+Scope.plot_4_1.event: MAGX_done
+Scope.plot_4_1.title: "ACQ196_01:input_04"//$shot
+Scope.plot_4_1.global_defaults: -199297
+
+Scope.plot_5_1.height: 112
+Scope.plot_5_1.experiment: magx
+Scope.plot_5_1.default_node: \top.digitizers:acq196_01
+Scope.plot_5_1.y: input_05
+Scope.plot_5_1.event: MAGX_done
+Scope.plot_5_1.title: "ACQ196_01:input_05"//$shot
+Scope.plot_5_1.global_defaults: -199297
+
+Scope.plot_6_1.height: 112
+Scope.plot_6_1.experiment: magx
+Scope.plot_6_1.default_node: \top.digitizers:acq196_01
+Scope.plot_6_1.y: input_06
+Scope.plot_6_1.event: MAGX_done
+Scope.plot_6_1.title: "ACQ196_01:input_06"//$shot
+Scope.plot_6_1.global_defaults: -199297
+
+Scope.plot_7_1.height: 112
+Scope.plot_7_1.experiment: magx
+Scope.plot_7_1.default_node: \top.digitizers:acq196_01
+Scope.plot_7_1.y: input_07
+Scope.plot_7_1.event: MAGX_done
+Scope.plot_7_1.title: "ACQ196_01:input_07"//$shot
+Scope.plot_7_1.global_defaults: -199297
+
+Scope.plot_8_1.height: 119
+Scope.plot_8_1.experiment: magx
+Scope.plot_8_1.default_node: \top.digitizers:acq196_01
+Scope.plot_8_1.y: input_08
+Scope.plot_8_1.event: MAGX_done
+Scope.plot_8_1.title: "ACQ196_01:input_08"//$shot
+Scope.plot_8_1.global_defaults: -199297

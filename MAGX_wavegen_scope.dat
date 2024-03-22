@@ -1,0 +1,52 @@
+Scope.geometry: 600x713+615+96
+Scope.title: "Wavegen scope"
+Scope.icon_name: "Wavegen"
+Scope.title_event: 
+Scope.print_file: dwscope.ps
+Scope.print_event: 
+Scope.print_portrait: 0
+Scope.print_window_title: 0
+Scope.printer: lp
+Scope.font: -Adobe-New Century Schoolbook-Medium-R-Normal--12-120-75-75-P-70-ISO8859-1
+Scope.columns: 1
+Scope.global_1_1.experiment: magx
+Scope.global_1_1.shot: current_shot("MAGX")
+Scope.global_1_1.xmin: -45
+Scope.global_1_1.xmax: 75
+Scope.global_1_1.event: MAGX_done
+Scope.global_1_1.global_defaults: -143745
+Scope.rows_in_column_1: 4
+
+Scope.plot_1_1.height: 155
+Scope.plot_1_1.experiment: magx
+Scope.plot_1_1.default_node: \top:wavegen
+Scope.plot_1_1.y: output_01
+Scope.plot_1_1.ymin: -0.5
+Scope.plot_1_1.ymax: 5.9
+Scope.plot_1_1.event: MAGX_done
+Scope.plot_1_1.title: "Wavegen output_01"//$shot
+Scope.plot_1_1.global_defaults: -248449
+
+Scope.plot_2_1.height: 155
+Scope.plot_2_1.experiment: magx
+Scope.plot_2_1.default_node: \top:wavegen
+Scope.plot_2_1.y: output_02
+Scope.plot_2_1.event: MAGX_done
+Scope.plot_2_1.title: "Wavegen output_02"//$shot
+Scope.plot_2_1.global_defaults: -199297
+
+Scope.plot_3_1.height: 155
+Scope.plot_3_1.experiment: magx
+Scope.plot_3_1.default_node: \top:wavegen
+Scope.plot_3_1.y: output_03
+Scope.plot_3_1.event: MAGX_done
+Scope.plot_3_1.title: "Wavegen output_03"//$shot
+Scope.plot_3_1.global_defaults: -199297
+
+Scope.plot_4_1.height: 162
+Scope.plot_4_1.experiment: magx
+Scope.plot_4_1.default_node: \top:wavegen
+Scope.plot_4_1.y: output_04
+Scope.plot_4_1.event: MAGX_done
+Scope.plot_4_1.title: "Wavegen output_04"//$shot
+Scope.plot_4_1.global_defaults: -199297

@@ -1,0 +1,38 @@
+Scope.geometry: 474x690+223+175
+Scope.title: "MAGX signals scope"
+Scope.icon_name: "MAGX signals"
+Scope.title_event: MAGX_done
+Scope.print_file: dwscope.ps
+Scope.print_event: 
+Scope.print_portrait: 0
+Scope.print_window_title: 0
+Scope.printer: lp
+Scope.font: -Adobe-New Century Schoolbook-Medium-R-Normal--12-120-75-75-P-70-ISO8859-1
+Scope.columns: 1
+Scope.global_1_1.experiment: magx
+Scope.global_1_1.shot: current_shot("MAGX")
+Scope.global_1_1.xmin: -5
+Scope.global_1_1.xmax: 60
+Scope.global_1_1.event: MAGX_done
+Scope.global_1_1.global_defaults: -211329
+Scope.rows_in_column_1: 4
+
+Scope.plot_1_1.height: 148
+Scope.plot_1_1.y: _signame="BP_DT23_L_010",|||_signame = "\\" // _signame,|||_sig=build_path(_signame), _units=units(_sig), _time=dim_of(_sig),|||_baseline=mean(_sig,,_time>-9.0 & _time<-1.0), _sig=_sig-_baseline
+Scope.plot_1_1.title: _signame//" ["//_units//"]"//$shot
+Scope.plot_1_1.global_defaults: -67585
+
+Scope.plot_2_1.height: 150
+Scope.plot_2_1.y: _signame="BP_DT23_U_010",|||_signame = "\\" // _signame,|||_sig=build_path(_signame), _units=units(_sig), _time=dim_of(_sig),|||_baseline=mean(_sig,,_time>-9.0 & _time<-1.0), _sig=_sig-_baseline
+Scope.plot_2_1.title: _signame//" ["//_units//"]"//$shot
+Scope.plot_2_1.global_defaults: -67585
+
+Scope.plot_3_1.height: 148
+Scope.plot_3_1.y: _signame="IP_ROG_1",|||_signame = "\\" // _signame,|||_sig=build_path(_signame), _units=units(_sig), _time=dim_of(_sig),|||_baseline=mean(_sig,,_time>-9.0 & _time<-1.0), _sig=_sig-_baseline
+Scope.plot_3_1.title: _signame//" ["//_units//"]"//$shot
+Scope.plot_3_1.global_defaults: -67585
+
+Scope.plot_4_1.height: 154
+Scope.plot_4_1.y: _signame="HALO_ROG_01",|||_signame = "\\" // _signame,|||_sig=build_path(_signame), _units=units(_sig), _time=dim_of(_sig),|||_baseline=mean(_sig,,_time>-9.0 & _time<-1.0), _sig=_sig-_baseline
+Scope.plot_4_1.title: _signame//" ["//_units//"]"//$shot
+Scope.plot_4_1.global_defaults: -67585

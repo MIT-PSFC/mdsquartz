@@ -1,0 +1,190 @@
+Scope.geometry: 562x695+81+37
+Scope.title: "MDS Scope"
+Scope.icon_name: "Scope"
+Scope.title_event: 
+Scope.print_file: dwscope.ps
+Scope.print_event: 
+Scope.print_portrait: 0
+Scope.print_window_title: 0
+Scope.printer: lp
+Scope.font: -Adobe-New Century Schoolbook-Medium-R-Normal--12-120-75-75-P-70-ISO8859-1
+Scope.columns: 3
+Scope.global_1_1.shot: current_shot("cmod")
+Scope.global_1_1.xmin: -.1
+Scope.global_1_1.xmax: 2.
+Scope.global_1_1.global_defaults: -12545
+Scope.rows_in_column_1: 6
+
+Scope.plot_1_1.height: 100
+Scope.plot_1_1.experiment: magnetics 
+Scope.plot_1_1.x: dim_of(\magnetics::ip)
+Scope.plot_1_1.y: _ip=abs(\magnetics::ip)/1.e6
+Scope.plot_1_1.event: mag_traq  
+Scope.plot_1_1.title: "Ip    "//$shot
+Scope.plot_1_1.label: Ip
+Scope.plot_1_1.global_defaults: 12544
+
+Scope.plot_2_1.height: 100
+Scope.plot_2_1.experiment: magnetics
+Scope.plot_2_1.default_node: \magnetics::top
+Scope.plot_2_1.y: abs(\magnetics::BTOR)
+Scope.plot_2_1.event: MAG_TRAQ
+Scope.plot_2_1.title: "Bt (Diam)" // getdbi("shot")
+Scope.plot_2_1.label: BT
+Scope.plot_2_1.global_defaults: 12546
+
+Scope.plot_3_1.height: 100
+Scope.plot_3_1.experiment: analysis
+Scope.plot_3_1.y: \ANALYSIS::EFIT_AEQDSK:QPSIB
+Scope.plot_3_1.event: efit_done
+Scope.plot_3_1.title: "q_95"//$shot
+Scope.plot_3_1.label: q95
+Scope.plot_3_1.global_defaults: -723585
+
+Scope.plot_4_1.height: 100
+Scope.plot_4_1.show_mode: 2
+Scope.plot_4_1.experiment: analysis
+Scope.plot_4_1.y: _k=\analysis::efit_aeqdsk:eout
+Scope.plot_4_1.ymin: .9
+Scope.plot_4_1.ymax: 1.8
+Scope.plot_4_1.event: efit_done
+Scope.plot_4_1.title: "kappa"//$shot
+Scope.plot_4_1.label: kappa
+Scope.plot_4_1.global_defaults: -773257
+
+Scope.plot_5_1.height: 100
+Scope.plot_5_1.experiment: analysis
+Scope.plot_5_1.y: \ANALYSIS::EFIT_AEQDSK:OLEFT
+Scope.plot_5_1.ymin: -.5
+Scope.plot_5_1.ymax: 4
+Scope.plot_5_1.event: efit_done
+Scope.plot_5_1.title: "LEFT Gap (cm)"//$shot
+Scope.plot_5_1.label: L  Gap
+Scope.plot_5_1.global_defaults: -772225
+
+Scope.plot_6_1.height: 105
+Scope.plot_6_1.experiment: analysis
+Scope.plot_6_1.y: \ANALYSIS::EFIT_AEQDSK:ORIGHT
+Scope.plot_6_1.ymin: -.5
+Scope.plot_6_1.ymax: 4
+Scope.plot_6_1.event: efit_done
+Scope.plot_6_1.title: "RIGHT Gap (cm)"//$shot
+Scope.plot_6_1.label: R Gap
+Scope.plot_6_1.global_defaults: -772225
+Scope.rows_in_column_2: 6
+
+Scope.plot_1_2.height: 100
+Scope.plot_1_2.experiment: electrons
+Scope.plot_1_2.y: _dens = \top.tci.results:nl_04/.65e20
+Scope.plot_1_2.ymin: -.2
+Scope.plot_1_2.event: tci_write
+Scope.plot_1_2.title: "Line Average Density"//$shot
+Scope.plot_1_2.label: nav
+Scope.plot_1_2.global_defaults: -773761
+
+Scope.plot_2_2.height: 100
+Scope.plot_2_2.show_mode: 2
+Scope.plot_2_2.experiment: electrons
+Scope.plot_2_2.y: \thom_midpln:ne_t/1.e20
+Scope.plot_2_2.event: yag_new_ready
+Scope.plot_2_2.title: "ne0 YAG"//$shot
+Scope.plot_2_2.label: ne0 YAG
+Scope.plot_2_2.global_defaults: -723593
+
+Scope.plot_3_2.height: 100
+Scope.plot_3_2.show_mode: 2
+Scope.plot_3_2.experiment: electrons
+Scope.plot_3_2.y: \thom_midpln:te_t
+Scope.plot_3_2.event: yag_new_ready
+Scope.plot_3_2.title: "Te0 YAG"//$shot
+Scope.plot_3_2.label: Te0 YAG
+Scope.plot_3_2.global_defaults: -723593
+
+Scope.plot_4_2.height: 100
+Scope.plot_4_2.experiment: electrons
+Scope.plot_4_2.y: _chan=16,\ELECTRONS::GPC2_TE[*,_chan]
+Scope.plot_4_2.event: GPC2_TE_DONE
+Scope.plot_4_2.title: "GPC2 Te (keV)   Chan "//trim(adjustl(_chan))//$shot
+Scope.plot_4_2.label: GPC2 Te
+Scope.plot_4_2.global_defaults: -724097
+
+Scope.plot_5_2.height: 100
+Scope.plot_5_2.step_plot: 1
+Scope.plot_5_2.experiment: electrons
+Scope.plot_5_2.y: \te_hrece28
+Scope.plot_5_2.ymin: 0
+Scope.plot_5_2.ymax: 4
+Scope.plot_5_2.event: Zeff_done
+Scope.plot_5_2.title: "Te FRC-28"//$shot  
+Scope.plot_5_2.label: Te FRC 28
+Scope.plot_5_2.global_defaults: 274807
+
+Scope.plot_6_2.height: 105
+Scope.plot_6_2.experiment: analysis
+Scope.plot_6_2.y: \ANALYSIS::EFIT_AEQDSK:wplasm/1.e6
+Scope.plot_6_2.event: efit_done
+Scope.plot_6_2.title: "Wmhd"//$shot
+Scope.plot_6_2.label: Wmhd
+Scope.plot_6_2.global_defaults: -773769
+Scope.rows_in_column_3: 6
+
+Scope.plot_1_3.height: 100
+Scope.plot_1_3.experiment: spectroscopy
+Scope.plot_1_3.y: \ha_2_bright
+Scope.plot_1_3.event: ctop_complete2
+Scope.plot_1_3.title: "H alpha 2" //$shot 
+Scope.plot_1_3.label: Ha - 2
+Scope.plot_1_3.global_defaults: 323967
+
+Scope.plot_2_3.height: 100
+Scope.plot_2_3.step_plot: 1
+Scope.plot_2_3.experiment: spectroscopy
+Scope.plot_2_3.y: \spectroscopy::top.bolometer.results.main:main_power /1.e6
+Scope.plot_2_3.ymin: -.1
+Scope.plot_2_3.event: pradm_done
+Scope.plot_2_3.title: "Bolometer"//$shot  
+Scope.plot_2_3.label: Prad Bolo Main
+Scope.plot_2_3.global_defaults: 274807
+
+Scope.plot_3_3.height: 100
+Scope.plot_3_3.experiment: xtomo
+Scope.plot_3_3.default_node: \xtomo_signals.array_3
+Scope.plot_3_3.y: chord_19*1.e6
+Scope.plot_3_3.event: xtomo_traq_2
+Scope.plot_3_3.title: "Soft X-ray diode (uA)"//$shot
+Scope.plot_3_3.label: S Xray 3 #19
+Scope.plot_3_3.global_defaults: -723594
+
+Scope.plot_4_3.height: 100
+Scope.plot_4_3.step_plot: 1
+Scope.plot_4_3.experiment: spectroscopy
+Scope.plot_4_3.x: _t = dim_Of(\spectroscopy::balmer_h_to_d)
+Scope.plot_4_3.y: _x = \spectroscopy::balmer_h_to_d,|||_x/(_x+1.)
+Scope.plot_4_3.ymin: -.01
+Scope.plot_4_3.ymax: .2
+Scope.plot_4_3.event: h_to_d_done
+Scope.plot_4_3.title: "H/(H+D) (Spect)"//$shot  
+Scope.plot_4_3.label: H/(H+D) Spect
+Scope.plot_4_3.global_defaults: 274807
+
+Scope.plot_5_3.height: 100
+Scope.plot_5_3.experiment: analysis
+Scope.plot_5_3.default_node: \analysis::efit
+Scope.plot_5_3.x: dim_of(\ANALYSIS::EFIT_SSIBRY)
+Scope.plot_5_3.y: _vsurf =  deriv(smooth1d(\ANALYSIS::EFIT_SSIBRY,2))*$2pi ;|||_ip=abs(\ANALYSIS::EFIT_AEQDSK:CPASMA);|||_li = \analysis::efit_aeqdsk:ali;|||_L = _li*6.28*67.*1.e-9;|||_vi = _L*deriv(smooth1d(_ip,2));|||_poh=_ip*(_vsurf-_vi)/1.e6
+Scope.plot_5_3.ymin: -.5
+Scope.plot_5_3.ymax: 2
+Scope.plot_5_3.event: efit_done
+Scope.plot_5_3.title: "Poh (MW)"//$shot
+Scope.plot_5_3.label: Poh
+Scope.plot_5_3.global_defaults: -773761
+
+Scope.plot_6_3.height: 105
+Scope.plot_6_3.experiment: rf
+Scope.plot_6_3.y: \rf::rf_power_net
+Scope.plot_6_3.event: rf_power_done
+Scope.plot_6_3.title: "Net forward power::"//$shot
+Scope.plot_6_3.label: P RF
+Scope.plot_6_3.global_defaults: -723585
+Scope.vpane_1: 333
+Scope.vpane_2: 666
