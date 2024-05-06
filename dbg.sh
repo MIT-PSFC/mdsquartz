@@ -13,4 +13,4 @@ MDSQUARTZ="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 export MDS_PATH="$MDSQUARTZ;$MDS_PATH"
 export PYTHONPATH=$MDSQUARTZ:$PYTHONPATH
 export default_tree_path=$MDSQUARTZ/trees/~t
-
+export LD_LIBRARY_PATH=/data/home/jas/mdsquartz:$LD_LIBRARY_PATH
