@@ -1,13 +1,17 @@
-def add_items(parent, parent_name, items):
+def add_items(parent, parent_name, items, dataset=None):
     import MDSplus
     for item in items:
         print(item['type'])
         if item['type'] == 'channel_group' :
             child = parent.addNode(f".{item['name'].upper()}", 'STRUCTURE')
+            print(f'Child is {child}')
             if len(parent_name) != 0:
                 parent_name = f'{parent_name}.{item["name"]}'
             add_items(child, item["name"], item['children'])
         else:
+            print(f'Type = {item["type"]}')
+            print(f'Type = {item["name"]}')
+            print(f'adding {item["name"]}')
             c_node = parent.addNode(item["name"].upper(), 'SIGNAL')
             if (len(parent_name) != 0) :
                 qname = f'{parent_name}.{item["name"]}'
@@ -20,12 +24,13 @@ def add_items(parent, parent_name, items):
                                                           str(qname),
                                                           tree._START_TIME_STRING, 
                                                           tree._END_TIME_STRING, 
-                                                          tree._ZERO_TIME_STRING)
+                                                          tree._ZERO_TIME_STRING,
+                                                          dataset)
 
 # dict_keys(['id', 'active', 'creation_time', 'deactivation_time', 'data_descriptors', 'expiration_time', 'description', 'name', 'tags', 'applications'])
 #data_registry_client = quartz.DataRegistryClient(quartz.PRODUCTION_DATA_REGISTRY_URL)
 
-def quartztree(run_id, treename, shotnumber):
+def quartztree(run_id, treename, shotnumber, dataset=None):
     import quartz
     from MDSplus import Tree
     from nsec_from_string import nsec_from_string
@@ -69,6 +74,7 @@ def quartztree(run_id, treename, shotnumber):
     parent = tree.addNode('quartz', 'structure')
 
     data_access_client = quartz.DataAccessClient(quartz.PRODUCTION_DATA_ACCESS_URL)
-    items = data_access_client.get_channels(run_id)
+    items = data_access_client.get_channels(run_id, dataset=dataset)
+    print(items)
     add_items(parent, '', items)
     tree.write()

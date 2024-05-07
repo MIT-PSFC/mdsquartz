@@ -1,5 +1,5 @@
 
-def getquartz(run_id, signal_name, start_time, end_time, zero_time):
+def getquartz(run_id, signal_name, start_time, end_time, zero_time, dataset):
     """
     return an MDSplus signal from stored QUARTZ data
 
@@ -45,7 +45,8 @@ def getquartz(run_id, signal_name, start_time, end_time, zero_time):
     ans =  data_access_client.read_channel_data(str(run_id),
                                              channels = chnls,
                                              start = start,
-                                             end = end)
+                                             end = end,
+                                             dataset = dataset)
     times = np.array(nsecs_from_strings(ans[0]['children'][0]['data']['times']))
     if zero_time.__class__ == MDSplus.tree.TreeNode:
         zero_time = zero_time.data()
