@@ -3,7 +3,7 @@ def add_items(parent, parent_name, items, dataset=None):
     for item in items:
         print(item['type'])
         if item['type'] == 'channel_group' :
-            child = parent.addNode(f".{item['name'].upper()}", 'STRUCTURE')
+            child = parent.addNode(f"{item['name'].upper()}".replace('.','_').replace(':','_'), 'STRUCTURE')
             print(f'Child is {child}')
             if len(parent_name) != 0:
                 parent_name = f'{parent_name}.{item["name"]}'

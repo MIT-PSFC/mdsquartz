@@ -4,5 +4,5 @@ def make_times(now:datetime, times:float):
   from datetime import date, datetime, timezone, timedelta
   ans = []
   for t in times:
-    ans.append(str(now + timedelta(seconds=float(t))))
+    ans.append((now + timedelta(seconds=float(t))).isoformat())
   return ans
