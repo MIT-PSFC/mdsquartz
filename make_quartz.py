@@ -21,12 +21,12 @@ now = datetime.now(timezone.utc)
 tree = MDSplus.Tree(treename,shotnumber)
 signals = tree.getNodeWild('***', 'signal')
 
-run = data_registry_client.create_run(1, name=f"analysis_{shotnumber}", description=f"{treename} tree for shot {shotnumber}", tags=[str(now), ])
+run = data_registry_client.create_run(10, name=f"analysis_{shotnumber}", description=f"{treename} tree for shot {shotnumber}", tags=[str(now), ])
 
 
 run_id = run["id"]
 with tempfile.NamedTemporaryFile() as f:
-    data_access_client.upload_file(run_id, f.name)
+    data_access_client.upload_file(run_id, f.name, dataset=dataset)
 for signal in signals:
     try:
         path = signal.fullpath
