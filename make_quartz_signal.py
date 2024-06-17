@@ -22,6 +22,7 @@ def make_quartz_signal(now:datetime, path:str, x:float, y:float):
             },
         ],
     }
-    print(f'make_quartz_signal returning {json.dumps(channel_data, indent=4)}')
+#if the data is 2D, print it out
+    if len(y.shape) == 2:
+        print(f'make_quartz_signal returning {json.dumps(channel_data, indent=4)}')
     return channel_data
- 
